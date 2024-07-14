@@ -9,8 +9,7 @@ import {
 } from "react-native";
 import React from "react";
 
-import Card from "../components/Card";
-import ProductCircleCard from "../components/ProductCircleCard";
+
 import HotItem from "../components/HotItem";
 
 const Catagory = () => {

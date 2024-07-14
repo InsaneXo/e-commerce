@@ -1,7 +1,7 @@
 import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const Card = ({ name, price, image }) => {
+const Card = ({ image }) => {
   return (
     <View
       style={{

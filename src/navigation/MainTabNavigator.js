@@ -8,6 +8,8 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import Catagory from "../screen/Catagory";
 import PageNotImplmented from "../screen/PageNotImplmented";
+import Cart from "../screen/Cart";
+import Profile from "../screen/Profile";
 
 const Tab = createBottomTabNavigator();
 
@@ -15,10 +17,13 @@ const MainTabNavigator = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      screenOptions={{ tabBarShowLabel: false, tabBarStyle:{
-        backgroundColor: "#272729",
-        height:80
-      } }}
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          backgroundColor: "#272729",
+          height: 80,
+        },
+      }}
     >
       <Tab.Screen
         name="Home"
@@ -50,7 +55,7 @@ const MainTabNavigator = () => {
       />
       <Tab.Screen
         name="Cart"
-        component={PageNotImplmented}
+        component={Cart}
         options={{
           headerShown: false,
           tabBarInactiveTintColor: "white",
@@ -61,20 +66,8 @@ const MainTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Order List"
-        component={PageNotImplmented}
-        options={{
-          headerShown: false,
-          tabBarInactiveTintColor: "white",
-          tabBarActiveTintColor: "yellow",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="briefcase-outline" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
         name="Profile"
-        component={PageNotImplmented}
+        component={Profile}
         options={{
           headerShown: false,
           tabBarInactiveTintColor: "white",
