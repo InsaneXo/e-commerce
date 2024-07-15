@@ -1,13 +1,21 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
 
-const CartItems = ({ catagory, name, price, image }) => {
+import { AntDesign } from "@expo/vector-icons";
+import { useDispatch } from "react-redux";
+import { addToCartAction } from "../redux/addToCartSlice";
+
+const CartItems = ({ id, name, previousPrice, currentPrice, image }) => {
   const [value, setValue] = useState(1);
+  const dispatch = useDispatch();
+  const handleDeleteFromCart = () => {
+    dispatch(addToCartAction.deleteFromCart(id));
+  };
   return (
     <View
       style={{
         height: 180,
-        backgroundColor: "#272729",
+        backgroundColor: "#F9F4EE",
         borderRadius: 17,
         flexDirection: "row",
         gap: 10,
@@ -30,37 +38,57 @@ const CartItems = ({ catagory, name, price, image }) => {
       </View>
       <View style={{ flex: 1, justifyContent: "space-around" }}>
         <View>
-          <Text style={{ color: "white" }}>{catagory}</Text>
-          <Text style={{ color: "white", fontSize: 20 }}>{name}</Text>
-          <Text style={{ color: "red", fontSize: 20 }}>{price}</Text>
+          <Text style={{ fontSize: 20 }}>{name}</Text>
+          <Text
+            style={{
+              color: "pink",
+              fontSize: 20,
+              textDecorationLine: "line-through",
+            }}
+          >
+            {previousPrice}
+          </Text>
+          <Text style={{ color: "red", fontSize: 20 }}>{currentPrice}</Text>
         </View>
         <View
           style={{
+            flex: 1,
             flexDirection: "row",
-            backgroundColor: "#3f3f47",
-            width: 90,
-            height: 45,
-            borderRadius: 10,
             justifyContent: "space-between",
             alignItems: "center",
-            paddingHorizontal: 10,
           }}
         >
-          <Text
-            style={{ color: "white", fontSize: 20 }}
-            onPress={() => setValue((prevVal) => prevVal - 1)}
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              width: 90,
+              height: 45,
+              borderRadius: 10,
+              alignItems: "center",
+              paddingHorizontal: 10,
+              backgroundColor: "#3f3f47",
+            }}
           >
-            -
-          </Text>
-          <Text style={{ color: "white", fontSize: 20 }}>
-            {value < 1 ? "1" : value}
-          </Text>
-          <Text
-            style={{ color: "white", fontSize: 20 }}
-            onPress={() => setValue((prevVal) => prevVal + 1)}
-          >
-            +
-          </Text>
+            <Text
+              style={{ color: "white", fontSize: 20 }}
+              onPress={() => setValue((prevVal) => prevVal - 1)}
+            >
+              -
+            </Text>
+            <Text style={{ color: "white", fontSize: 20 }}>
+              {value < 1 ? "1" : value}
+            </Text>
+            <Text
+              style={{ color: "white", fontSize: 20 }}
+              onPress={() => setValue((prevVal) => prevVal + 1)}
+            >
+              +
+            </Text>
+          </View>
+          <TouchableOpacity onPress={handleDeleteFromCart}>
+            <AntDesign name="delete" size={24} color="red" />
+          </TouchableOpacity>
         </View>
       </View>
     </View>

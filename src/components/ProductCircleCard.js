@@ -15,10 +15,10 @@ const ProductCircleCard = ({ name,image }) => {
       >
         <ImageBackground
           source={image}
-          style={{ objectFit: "fill", flex: 1 }}
+          style={{  flex: 1 }}
         />
       </View>
-      <Text style={{ color: "white" }}>{name}</Text>
+      <Text >{name}</Text>
     </View>
   );
 };

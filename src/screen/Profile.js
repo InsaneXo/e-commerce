@@ -3,51 +3,51 @@ import React from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
-import { FontAwesome6 } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
+import { FontAwesome6 } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 
 const Profile = () => {
   const data = [
     {
-      icon: <AntDesign name="user" size={24} color="white" />,
+      icon: <AntDesign name="user" size={24} />,
       name: "Personal Info",
     },
     {
-      icon: <FontAwesome5 name="bell" size={24} color="white" />,
+      icon: <FontAwesome5 name="bell" size={24} />,
       name: "Notifications",
     },
     {
-      icon: <Feather name="briefcase" size={24} color="white" />,
+      icon: <Feather name="briefcase" size={24} />,
       name: "My Orders",
     },
     {
-      icon: <AntDesign name="hearto" size={24} color="white" />,
+      icon: <AntDesign name="hearto" size={24} />,
       name: "Favoutires",
     },
   ];
 
   const data2 = [
     {
-      icon: <FontAwesome6 name="location-dot" size={24} color="white" />,
+      icon: <FontAwesome6 name="location-dot" size={24} />,
       name: "My Address",
     },
     {
-      icon: <MaterialIcons name="payment" size={24} color="white" />,
+      icon: <MaterialIcons name="payment" size={24} />,
       name: "Payment Method",
     },
     {
-      icon: <Entypo name="lock" size={24} color="white" />,
+      icon: <Entypo name="lock" size={24} />,
       name: "Change Password",
     },
     {
-      icon: <AntDesign name="questioncircleo" size={24} color="white" />,
+      icon: <AntDesign name="questioncircleo" size={24} />,
       name: "Help & Support",
     },
   ];
   return (
     <ScrollView
-      style={{ flex: 1, backgroundColor: "#09090B", paddingHorizontal: 10 }}
+      style={{ flex: 1, backgroundColor: "#FFFFFF", paddingHorizontal: 10 }}
     >
       <Text style={{ textAlign: "center", color: "white", marginVertical: 15 }}>
         Profile
@@ -66,18 +66,18 @@ const Profile = () => {
               height: 80,
               width: 80,
               borderRadius: 50,
-              backgroundColor: "white",
-              justifyContent:"center",
-              alignItems: "center"
+              backgroundColor: "#F9F4EE",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <AntDesign name="user" size={24} color="black" />
           </View>
           <View style={{ gap: 10 }}>
-            <Text style={{ color: "white", fontWeight: "bold", fontSize: 20 }}>
+            <Text style={{ fontWeight: "bold", fontSize: 20 }}>
               Bipin Singh
             </Text>
-            <Text style={{ color: "white" }}>vsinghvipin333@gmail.com</Text>
+            <Text >vsinghvipin333@gmail.com</Text>
           </View>
         </View>
         <FontAwesome5 name="bell" size={24} color="white" />
@@ -87,7 +87,7 @@ const Profile = () => {
           <View
             key={index}
             style={{
-              backgroundColor: "#272729",
+              backgroundColor: "#F9F4EE",
               paddingHorizontal: 10,
               flexDirection: "row",
               justifyContent: "space-between",
@@ -103,7 +103,7 @@ const Profile = () => {
               }}
             >
               {item.icon}
-              <Text style={{ color: "white", fontSize: 17 }}>{item.name}</Text>
+              <Text style={{ fontSize: 17 }}>{item.name}</Text>
             </View>
             <AntDesign name="right" size={24} color="white" />
           </View>
@@ -114,7 +114,7 @@ const Profile = () => {
           <View
             key={index}
             style={{
-              backgroundColor: "#272729",
+              backgroundColor: "#F9F4EE",
               paddingHorizontal: 10,
               flexDirection: "row",
               justifyContent: "space-between",
@@ -130,9 +130,9 @@ const Profile = () => {
               }}
             >
               {item.icon}
-              <Text style={{ color: "white", fontSize: 17 }}>{item.name}</Text>
+              <Text style={{ fontSize: 17 }}>{item.name}</Text>
             </View>
-            <AntDesign name="right" size={24} color="white" />
+            <AntDesign name="right" size={24} />
           </View>
         ))}
       </View>

@@ -1,17 +1,23 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
-import CartItems from "../components/CartItems";
-import { MaterialIcons } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
+import { AntDesign } from "@expo/vector-icons";
+import WishlistItem from "../components/WishlistItem";
 import { useNavigation } from "@react-navigation/native";
 
-const Cart = () => {
-  const addToCart = useSelector((store) => store.addToCart);
-  const navigation = useNavigation()
-
+const Wishlist = () => {
+  const wishlist = useSelector((store) => store.wishlist);
+  const navigation = useNavigation();
   return (
     <>
-      {addToCart.length === 0 ? (
+      {wishlist.length === 0 ? (
         <View
           style={{
             flex: 1,
@@ -21,12 +27,18 @@ const Cart = () => {
             gap:10
           }}
         >
-          <MaterialIcons name="add-shopping-cart" size={100} color="black" />
-          <Text style={{ fontSize: 40 }}>Your cart is empty</Text>
-          <TouchableOpacity style={{ backgroundColor: "#F9F4EE", paddingVertical:20, paddingHorizontal:30, borderRadius:10}} onPress={()=> navigation.navigate("Home")}>
-            <Text>
-              Shop Now
-            </Text>
+          <AntDesign name="heart" size={100} color="red" />
+          <Text style={{ fontSize: 40 }}>Your wishlist is empty</Text>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#F9F4EE",
+              paddingVertical: 20,
+              paddingHorizontal: 30,
+              borderRadius: 10,
+            }}
+            onPress={() => navigation.navigate("Home")}
+          >
+            <Text>Add Now</Text>
           </TouchableOpacity>
         </View>
       ) : (
@@ -36,10 +48,10 @@ const Cart = () => {
           <Text
             style={{ textAlign: "center", fontSize: 20, marginVertical: 15 }}
           >
-            Cart
+            Wishlist
           </Text>
-          {addToCart.map((item, index) => (
-            <CartItems
+          {wishlist.map((item, index) => (
+            <WishlistItem
               key={index}
               id={item.id}
               currentPrice={item.currentPrice}
@@ -54,6 +66,6 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Wishlist;
 
 const styles = StyleSheet.create({});

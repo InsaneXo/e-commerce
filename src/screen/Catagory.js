@@ -9,42 +9,34 @@ import {
 } from "react-native";
 import React from "react";
 
-
-import HotItem from "../components/HotItem";
+import CatagoryItem from "../components/CatagoryItem";
 
 const Catagory = () => {
-  const hotItem = [
+  const data = [
     {
-      name: "Clothing",
-      image: require("../../assets/images/product categories/clothing.jpg"),
+      name: "Ear Rings",
+      image: require("../../assets/images/ear-ring.jpg"),
     },
     {
-      name: "Eletronics",
-      image: require("../../assets/images/product categories/electronic.jpg"),
+      name: "Jewels",
+      image: require("../../assets/images/gold-chain.jpg"),
     },
     {
-      name: "Furniture",
-      image: require("../../assets/images/product categories/furniture.jpeg"),
+      name: "Nacklace",
+      image: require("../../assets/images/Necklace.jpg"),
     },
     {
-      name: "Shoes",
-      image: require("../../assets/images/product categories/shoes.jpg"),
-    },
-    {
-      name: "Furniture",
-      image: require("../../assets/images/product categories/furniture.jpeg"),
-    },
-    {
-      name: "Shoes",
-      image: require("../../assets/images/product categories/shoes.jpg"),
+      name: "Rings",
+      image: require("../../assets/images/ring.jpg"),
     },
   ];
   return (
     <ScrollView
-      style={{ flex: 1, backgroundColor: "#09090B", paddingHorizontal: 10 }}
+      style={{ flex: 1, backgroundColor: "#FFFFFF", paddingHorizontal: 10 }}
     >
-      <StatusBar backgroundColor={"#09090B"} />
-      <Text style={{textAlign: "center", color: "white", marginVertical:15}}>Catagory</Text>
+      <Text style={{ textAlign: "center", fontSize:20, marginVertical: 15 }}>
+        Catagory
+      </Text>
       <View
         style={{
           flexDirection: "row",
@@ -55,9 +47,8 @@ const Catagory = () => {
       >
         <TextInput
           placeholder="Search your product"
-          placeholderTextColor={"white"}
           style={{
-            backgroundColor: "#272729",
+            backgroundColor: "#F9F4EE",
             color: "white",
             flex: 1,
             padding: 15,
@@ -65,11 +56,15 @@ const Catagory = () => {
           }}
         />
       </View>
-      <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 15 }}>
+      {/* <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 15 }}>
         {hotItem.map((item, index) => (
           <HotItem key={index} name={item.name} image={item.image} />
         ))}
-      </View>
+      </View> */}
+
+      {data.map((item, index) => (
+        <CatagoryItem key={index} name={item.name} image={item.image} />
+      ))}
     </ScrollView>
   );
 };

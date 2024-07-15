@@ -6,142 +6,124 @@ import {
   StatusBar,
   ScrollView,
   FlatList,
+  Image,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
-import { FontAwesome6 } from "@expo/vector-icons";
-import { FontAwesome5 } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import Card from "../components/Card";
-import ProductCircleCard from "../components/ProductCircleCard";
 import HotItem from "../components/HotItem";
 
 const Home = () => {
   const data = [
     {
       id: "1",
-      name: "Iphone 14",
-      price: "80000",
-      image: require("../../assets/images/home products/apple macbook.jpg"),
+      name: "Ear Rings",
+      image: require("../../assets/images/ear-ring.jpg"),
     },
     {
       id: "2",
-      name: "Asus Laptop",
-      price: "30000",
-      image: require("../../assets/images/home products/apple macbook.jpg"),
+      name: "Wedding Rings",
+      image: require("../../assets/images/ring.jpg"),
     },
     {
       id: "3",
-      name: "Apple Mac",
-      price: "100000",
-      image: require("../../assets/images/home products/apple macbook.jpg"),
+      name: "Gold Chain",
+      image: require("../../assets/images/gold-chain.jpg"),
     },
     {
       id: "4",
-      name: "Addidas Shoes",
-      price: "80000",
-      image: require("../../assets/images/home products/apple macbook.jpg"),
+      name: "Bracelet",
+      image: require("../../assets/images/bracelet.jpg"),
     },
     {
       id: "5",
-      name: "Redmi 8",
-      price: "70000",
-      image: require("../../assets/images/home products/apple macbook.jpg"),
+      name: "Ear Tops",
+      image: require("../../assets/images/ear-top.jpg"),
     },
   ];
 
   const productData = [
     {
-      name: "Clothing",
-      image: require("../../assets/images/product categories/clothing.jpg"),
+      id: "1",
+      name: "Elegant jhumka White & Gray",
+      previousPrice: "₹ 1,000",
+      currentPrice: " ₹ 799",
+      image: require("../../assets/images/elegantJumka.jpg"),
     },
     {
-      name: "Eletronics",
-      image: require("../../assets/images/product categories/electronic.jpg"),
+      id: "2",
+      name: "Emrald CZ Necklace Set with Big Pendant",
+      previousPrice: "₹ 3,000",
+      currentPrice: " ₹ 2,499",
+      image: require("../../assets/images/Necklace.jpg"),
     },
     {
-      name: "Furniture",
-      image: require("../../assets/images/product categories/furniture.jpeg"),
+      id: "3",
+      name: "White Gold Chain",
+      previousPrice: "₹ 1000",
+      currentPrice: " ₹ 799",
+      image: require("../../assets/images/white-gold-chain.jpeg"),
     },
     {
-      name: "Beauty",
-      image: require("../../assets/images/product categories/clothing.jpg"),
+      id: "4",
+      name: "Diamond Ring",
+      previousPrice: "₹ 1000",
+      currentPrice: " ₹ 799",
+      image: require("../../assets/images/item001.jpg"),
     },
     {
-      name: "Books",
-      image: require("../../assets/images/product categories/books.jpg"),
+      id: "5",
+      name: "Ear Rings",
+      previousPrice: "₹ 1000",
+      currentPrice: " ₹ 799",
+      image: require("../../assets/images/item002.jpg"),
     },
     {
-      name: "Shoes",
-      image: require("../../assets/images/product categories/shoes.jpg"),
+      id: "6",
+      name: "Flower Tops",
+      previousPrice: "₹ 1000",
+      currentPrice: " ₹ 799",
+      image: require("../../assets/images/item003.jpg"),
     },
     {
-      name: "Toys",
-      image: require("../../assets/images/product categories/toy.jpg"),
+      id: "7",
+      name: "Nacklace",
+      previousPrice: "₹ 1000",
+      currentPrice: " ₹ 799",
+      image: require("../../assets/images/item004.jpg"),
     },
     {
-      name: "Gym Product",
-      image: require("../../assets/images/product categories/clothing.jpg"),
+      id: "8",
+      name: "Blue Gem Ring",
+      previousPrice: "₹ 1000",
+      currentPrice: " ₹ 799",
+      image: require("../../assets/images/item005.jpg"),
     },
     {
-      name: "Mobile",
-      image: require("../../assets/images/product categories/clothing.jpg"),
-    },
-    {
-      name: "Mobile Cover",
-      image: require("../../assets/images/product categories/clothing.jpg"),
+      id: "9",
+      name: "Gold earring",
+      previousPrice: "₹ 1000",
+      currentPrice: " ₹ 799",
+      image: require("../../assets/images/gold-earing.jpg"),
     },
   ];
 
-  const hotItem = [
-    {
-      name: "Clothing",
-      image: require("../../assets/images/product categories/clothing.jpg"),
-    },
-    {
-      name: "Eletronics",
-      image: require("../../assets/images/product categories/electronic.jpg"),
-    },
-    {
-      name: "Furniture",
-      image: require("../../assets/images/product categories/furniture.jpeg"),
-    },
-    {
-      name: "Shoes",
-      image: require("../../assets/images/product categories/shoes.jpg"),
-    },
-  ];
   return (
     <ScrollView
-      style={{ flex: 1, backgroundColor: "#09090B", paddingHorizontal: 10 }}
+      style={{ flex: 1, backgroundColor: "#FFFFFF", paddingHorizontal: 10 }}
     >
-      <StatusBar backgroundColor={"#09090B"} />
       <View
         style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          paddingHorizontal: 4,
+          height: 60,
+          paddingVertical: 5,
           marginTop: 10,
         }}
       >
-        <View style={{ flexDirection: "row", alignItems: "center", gap: 3 }}>
-          <View
-            style={{
-              height: 50,
-              width: 50,
-              backgroundColor: "#3A5119",
-              borderRadius: 50,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <FontAwesome6 name="location-dot" size={24} color="white" />
-          </View>
-          <Text style={{ color: "white" }}>Noida</Text>
-        </View>
-        <View>
-          <FontAwesome5 name="bell" size={24} color="white" />
-        </View>
+        <Image
+          source={require(`../../assets/images/logo-no-background.png`)}
+          style={{ width: "100%", height: "100%", objectFit: "contain" }}
+        />
       </View>
       <View
         style={{
@@ -153,9 +135,8 @@ const Home = () => {
       >
         <TextInput
           placeholder="Search your product"
-          placeholderTextColor={"white"}
           style={{
-            backgroundColor: "#272729",
+            backgroundColor: "#F9F4EE",
             color: "white",
             flex: 1,
             padding: 15,
@@ -166,16 +147,16 @@ const Home = () => {
           style={{
             height: 45,
             width: 45,
-            backgroundColor: "#29292C",
+            backgroundColor: "#F9F4EE",
             borderRadius: 50,
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <AntDesign name="bars" size={24} color="white" />
+          <AntDesign name="bars" size={24} color="black" />
         </View>
       </View>
-      <View style={{ marginBottom: 10 }}>
+      <View style={{ marginBottom: 30 }}>
         <FlatList
           showsHorizontalScrollIndicator={false}
           horizontal
@@ -186,74 +167,63 @@ const Home = () => {
           keyExtractor={(item) => item.id}
         />
       </View>
-      <View>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Text style={{ color: "white", fontSize: 25 }}>
-            Product Categories
-          </Text>
-          <Text style={{ color: "white", fontSize: 17, color: "#BEF264" }}>
-            See all
-          </Text>
-        </View>
+
+      <View style={{ gap: 4, marginBottom: 20 }}>
+        <Text style={{ fontSize: 24 }}>Top Collection</Text>
       </View>
-      <View
+      <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 15 }}>
+        {productData.map((item, index) => (
+          <HotItem
+            key={index}
+            id={item.id}
+            name={item.name}
+            image={item.image}
+            previousPrice={item.previousPrice}
+            currentPrice={item.currentPrice}
+          />
+        ))}
+      </View>
+      <TouchableOpacity
         style={{
-          flexDirection: "row",
-          gap: 10,
-          marginTop: 10,
-          flexWrap: "wrap",
+          backgroundColor: "#F9F4EE",
+          height: 45,
+          borderRadius: 10,
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: 30,
         }}
       >
-        {productData.map((item, index) => (
-          <ProductCircleCard key={index} name={item.name} image={item.image} />
-        ))}
-      </View>
-      <View style={{ marginVertical: 10 }}>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Text style={{ color: "white", fontSize: 25 }}>Hot Item</Text>
-          <Text style={{ color: "white", fontSize: 17, color: "#BEF264" }}>
-            See all
-          </Text>
-        </View>
+        <Text>See All</Text>
+      </TouchableOpacity>
+      <View style={{ gap: 4, marginBottom: 20 }}>
+        <Text style={{ fontSize: 24 }}>New Collection</Text>
       </View>
       <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 15 }}>
-        {hotItem.map((item, index) => (
-          <HotItem key={index} name={item.name} image={item.image} />
-        ))}
-      </View>
-      <View style={{ marginVertical: 10 }}>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Text style={{ color: "white", fontSize: 25 }}>
-            Top Rated Product
-          </Text>
-          <Text style={{ color: "white", fontSize: 17, color: "#BEF264" }}>
-            See all
-          </Text>
+        <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 15 }}>
+          {productData.map((item, index) => (
+            <HotItem
+              key={index}
+              id={item.id}
+              name={item.name}
+              image={item.image}
+              previousPrice={item.previousPrice}
+              currentPrice={item.currentPrice}
+            />
+          ))}
         </View>
       </View>
-      <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 15 }}>
-        {hotItem.map((item, index) => (
-          <HotItem key={index} name={item.name} image={item.image} />
-        ))}
-      </View>
+      <TouchableOpacity
+        style={{
+          backgroundColor: "#F9F4EE",
+          height: 45,
+          borderRadius: 10,
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: 10,
+        }}
+      >
+        <Text>See All</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 };
