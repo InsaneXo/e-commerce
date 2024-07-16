@@ -2,15 +2,15 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useEffect } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCartAction } from "../redux/addToCartSlice";
-import { wishListAction } from "../redux/addToWishlist";
+import { cartSliceAction, wishListAction } from "../redux/features";
 
-const HotItem = ({ id, name, image, previousPrice, currentPrice }) => {
+const HotItem = ({ id, name, image, previousPrice, currentPrice, quantity }) => {
   const dispatch = useDispatch();
 
-  const cartItems = useSelector((state) => state.addToCart);
+  const cartItems = useSelector((state) => state.cart);
   const wishlistItems = useSelector((state) => state.wishlist);
 
+  // Search in the store and check id. If present return true otherwise false
   const isInCart = cartItems.some((item) => item.id === id);
   const isInWishList = wishlistItems.some((item) => item.id === id);
 
@@ -21,11 +21,14 @@ const HotItem = ({ id, name, image, previousPrice, currentPrice }) => {
       image,
       previousPrice,
       currentPrice,
+      quantity
     };
-    dispatch(addToCartAction.addToCart(payload));
+    dispatch(cartSliceAction.addToCart(payload));
   };
+
+
   const deleteFromCart = () => {
-    dispatch(addToCartAction.deleteFromCart(id));
+    dispatch(cartSliceAction.deleteFromCart(id));
   };
 
   const addToWishlistHandler = () => {

@@ -56,12 +56,6 @@ const Catagory = () => {
           }}
         />
       </View>
-      {/* <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 15 }}>
-        {hotItem.map((item, index) => (
-          <HotItem key={index} name={item.name} image={item.image} />
-        ))}
-      </View> */}
-
       {data.map((item, index) => (
         <CatagoryItem key={index} name={item.name} image={item.image} />
       ))}

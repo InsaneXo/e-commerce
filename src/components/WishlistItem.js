@@ -3,11 +3,12 @@ import React, { useState } from "react";
 
 import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { wishListAction } from "../redux/addToWishlist";
-import { addToCartAction } from "../redux/addToCartSlice";
+import { cartSliceAction, wishListAction } from "../redux/features";
 
 const WishlistItem = ({ id, name, previousPrice, currentPrice, image }) => {
-  const cart = useSelector((store) => store.addToCart);
+  const cart = useSelector((store) => store.cart);
+
+  // Search in the store and check id. If present return true otherwise false
   const isIsCart = cart.some((item) => item.id === id);
 
   const dispatch = useDispatch();
@@ -20,9 +21,8 @@ const WishlistItem = ({ id, name, previousPrice, currentPrice, image }) => {
       currentPrice,
       image,
     };
-    dispatch(addToCartAction.addToCart(payload));
+    dispatch(cartSliceAction.addToCart(payload));
   };
-
 
   const deleteFromWislist = () => {
     dispatch(wishListAction.deleteFromWishlist(id));
@@ -88,9 +88,8 @@ const WishlistItem = ({ id, name, previousPrice, currentPrice, image }) => {
                 paddingHorizontal: 10,
                 backgroundColor: "#DDDDDD",
               }}
-             
             >
-              <Text style={{ }}>Added</Text>
+              <Text style={{}}>Added</Text>
             </TouchableOpacity>
           ) : (
             <TouchableOpacity

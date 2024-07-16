@@ -1,16 +1,45 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import { AntDesign } from "@expo/vector-icons";
-import { useDispatch } from "react-redux";
-import { addToCartAction } from "../redux/addToCartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { cartSliceAction } from "../redux/features";
+import { debounce } from "lodash";
 
 const CartItems = ({ id, name, previousPrice, currentPrice, image }) => {
-  const [value, setValue] = useState(1);
+  const cart = useSelector((store) => store.cart);
   const dispatch = useDispatch();
+  const index = cart.findIndex((item) => item.id === id);
+  const [quantity, setQuantity] = useState(cart[index]?.quantity || 1);
+
   const handleDeleteFromCart = () => {
-    dispatch(addToCartAction.deleteFromCart(id));
+    dispatch(cartSliceAction.deleteFromCart(id));
   };
+
+  // This function for debouce if user tap multiple - or + 
+
+  const updateQuantityHandler = useRef(
+    debounce((quantity) => {
+      const payload = { id, quantity };
+      dispatch(cartSliceAction.updateFromCart(payload));
+    }, 500)
+  ).current;
+
+ 
+  useEffect(() => {
+    updateQuantityHandler(quantity);
+    return () => {
+      updateQuantityHandler.cancel();
+    };
+  }, [quantity]);
+
+  useEffect(() => {
+    if (cart[index] && cart[index].quantity !== quantity) {
+      setQuantity(cart[index].quantity);
+    }
+  }, [cart]);
+
+  console.log(cart);
   return (
     <View
       style={{
@@ -46,9 +75,9 @@ const CartItems = ({ id, name, previousPrice, currentPrice, image }) => {
               textDecorationLine: "line-through",
             }}
           >
-            {previousPrice}
+           ₹ {previousPrice}
           </Text>
-          <Text style={{ color: "red", fontSize: 20 }}>{currentPrice}</Text>
+          <Text style={{ color: "red", fontSize: 20 }}>₹ {currentPrice}</Text>
         </View>
         <View
           style={{
@@ -70,18 +99,27 @@ const CartItems = ({ id, name, previousPrice, currentPrice, image }) => {
               backgroundColor: "#3f3f47",
             }}
           >
-            <Text
-              style={{ color: "white", fontSize: 20 }}
-              onPress={() => setValue((prevVal) => prevVal - 1)}
-            >
-              -
-            </Text>
+            {quantity === 1 ? (
+              <Text
+                style={{ color: "white", fontSize: 20 }}
+                onPress={handleDeleteFromCart}
+              >
+                -
+              </Text>
+            ) : (
+              <Text
+                style={{ color: "white", fontSize: 20 }}
+                onPress={() => setQuantity((prevVal) => prevVal - 1)}
+              >
+                -
+              </Text>
+            )}
             <Text style={{ color: "white", fontSize: 20 }}>
-              {value < 1 ? "1" : value}
+              {quantity < 1 ? "1" : quantity}
             </Text>
             <Text
               style={{ color: "white", fontSize: 20 }}
-              onPress={() => setValue((prevVal) => prevVal + 1)}
+              onPress={() => setQuantity((prevVal) => prevVal + 1)}
             >
               +
             </Text>

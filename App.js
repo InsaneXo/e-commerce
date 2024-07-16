@@ -8,6 +8,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <SafeAreaView style={styles.container}>
+        <StatusBar backgroundColor="black" />
         <Navigator />
       </SafeAreaView>
     </Provider>

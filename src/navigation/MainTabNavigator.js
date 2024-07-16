@@ -16,7 +16,8 @@ import Wishlist from "../screen/Wishlist";
 const Tab = createBottomTabNavigator();
 
 const MainTabNavigator = () => {
-  const items = useSelector((store) => store.addToCart);
+  
+  const items = useSelector((store) => store.cart);
   const wishlistItem = useSelector((store)=> store.wishlist)
 
   return (

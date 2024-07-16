@@ -47,65 +47,74 @@ const Home = () => {
     {
       id: "1",
       name: "Elegant jhumka White & Gray",
-      previousPrice: "₹ 1,000",
-      currentPrice: " ₹ 799",
+      previousPrice: 1000,
+      currentPrice: 799,
       image: require("../../assets/images/elegantJumka.jpg"),
+      quantity: 1,
     },
     {
       id: "2",
       name: "Emrald CZ Necklace Set with Big Pendant",
-      previousPrice: "₹ 3,000",
-      currentPrice: " ₹ 2,499",
+      previousPrice: 3000,
+      currentPrice: 2499,
       image: require("../../assets/images/Necklace.jpg"),
+      quantity: 1,
     },
     {
       id: "3",
       name: "White Gold Chain",
-      previousPrice: "₹ 1000",
-      currentPrice: " ₹ 799",
+      previousPrice: 1000,
+      currentPrice: 799,
       image: require("../../assets/images/white-gold-chain.jpeg"),
+      quantity: 1,
     },
     {
       id: "4",
       name: "Diamond Ring",
-      previousPrice: "₹ 1000",
-      currentPrice: " ₹ 799",
+      previousPrice: 1000,
+      currentPrice: 799,
       image: require("../../assets/images/item001.jpg"),
+      quantity: 1,
     },
     {
       id: "5",
       name: "Ear Rings",
-      previousPrice: "₹ 1000",
-      currentPrice: " ₹ 799",
+      previousPrice: 1000,
+      currentPrice: 799,
       image: require("../../assets/images/item002.jpg"),
+      quantity: 1,
     },
     {
       id: "6",
       name: "Flower Tops",
-      previousPrice: "₹ 1000",
-      currentPrice: " ₹ 799",
+      previousPrice: 1000,
+      currentPrice: 799,
       image: require("../../assets/images/item003.jpg"),
+      quantity: 1,
     },
     {
       id: "7",
-      name: "Nacklace",
-      previousPrice: "₹ 1000",
-      currentPrice: " ₹ 799",
+      name: "Necklace",
+      previousPrice: 1000,
+      currentPrice: 799,
       image: require("../../assets/images/item004.jpg"),
+      quantity: 1,
     },
     {
       id: "8",
       name: "Blue Gem Ring",
-      previousPrice: "₹ 1000",
-      currentPrice: " ₹ 799",
+      previousPrice: 1000,
+      currentPrice: 799,
       image: require("../../assets/images/item005.jpg"),
+      quantity: 1,
     },
     {
       id: "9",
       name: "Gold earring",
-      previousPrice: "₹ 1000",
-      currentPrice: " ₹ 799",
+      previousPrice: 1000,
+      currentPrice: 799,
       image: require("../../assets/images/gold-earing.jpg"),
+      quantity: 1,
     },
   ];
 
@@ -180,6 +189,7 @@ const Home = () => {
             image={item.image}
             previousPrice={item.previousPrice}
             currentPrice={item.currentPrice}
+            quantity={item.quantity}
           />
         ))}
       </View>
