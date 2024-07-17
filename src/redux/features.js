@@ -14,7 +14,7 @@ export const cartSlice = createSlice({
       // Find Index in Product Data
       const index = state.findIndex((item) => item.id === action.payload.id);
 
-      // if id not match it return false and function is not run.
+      // if index not match it return false and the function is not run.
       if (index !== -1) {
         state[index].quantity = action.payload.quantity;
       }

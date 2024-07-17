@@ -4,6 +4,7 @@ import MainTabNavigator from "./MainTabNavigator";
 import Address from "../screen/Address";
 import OrderSummary from "../screen/OrderSummary";
 import Payment from "../screen/Payment";
+import OrderSuccessful from "../screen/OrderSuccessful";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,22 +15,27 @@ const Navigator = () => {
         <Stack.Screen
           name="Main"
           component={MainTabNavigator}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, animation: "slide_from_right" }}
         />
         <Stack.Screen
           name="Address"
           component={Address}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, animation: "slide_from_right" }}
         />
         <Stack.Screen
           name="OrderSummary"
           component={OrderSummary}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, animation: "slide_from_right" }}
         />
         <Stack.Screen
           name="Payment"
           component={Payment}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, animation: "slide_from_right" }}
+        />
+        <Stack.Screen
+          name="OrderSuccessful"
+          component={OrderSuccessful}
+          options={{ headerShown: false, animation: "slide_from_right" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

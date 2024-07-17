@@ -24,11 +24,13 @@ const Wishlist = () => {
             backgroundColor: "#FFFFFF",
             alignItems: "center",
             justifyContent: "center",
-            gap:10
+            gap: 10,
           }}
         >
           <AntDesign name="heart" size={100} color="red" />
-          <Text style={{ fontSize: 40 }}>Your wishlist is empty</Text>
+          <Text style={{ fontSize: 40, fontFamily: "WorkSans" }}>
+            Your wishlist is empty
+          </Text>
           <TouchableOpacity
             style={{
               backgroundColor: "#F9F4EE",
@@ -38,7 +40,7 @@ const Wishlist = () => {
             }}
             onPress={() => navigation.navigate("Home")}
           >
-            <Text>Add Now</Text>
+            <Text style={{ fontFamily: "WorkSans" }}>Add Now</Text>
           </TouchableOpacity>
         </View>
       ) : (
@@ -58,6 +60,7 @@ const Wishlist = () => {
               previousPrice={item.previousPrice}
               name={item.name}
               image={item.image}
+              quantity={item.quantity}
             />
           ))}
         </ScrollView>

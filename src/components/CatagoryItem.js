@@ -8,7 +8,7 @@ const CatagoryItem = ({ name, image }) => {
       style={{
         height: 200,
         flex: 1,
-        borderRadius: 30,
+        borderRadius: 10,
         overflow: "hidden",
         backgroundColor: "#F9F4EE",
         justifyContent: "flex-end",
@@ -21,7 +21,7 @@ const CatagoryItem = ({ name, image }) => {
         source={image}
         style={{ width: "100%", height: "100%", position: "absolute" }}
       />
-      <Text style={{ fontSize: 40, color: "white", marginRight: 20 }}>
+      <Text style={{ fontSize: 40, color: "white", marginRight: 10, fontFamily:"WorkSans", fontWeight:"400" }}>
         {name}
       </Text>
     </View>

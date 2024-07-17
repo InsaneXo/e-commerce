@@ -26,7 +26,7 @@ const Address = () => {
         <TouchableOpacity style={{ position: "absolute", left: 6 }} onPress={()=> navigation.goBack()}>
           <Ionicons name="arrow-back" size={24} color="black" />
         </TouchableOpacity>
-        <Text style={{ margin: "auto", fontSize: 20 }}>Address Details</Text>
+        <Text style={{ margin: "auto", fontSize: 20, fontFamily: "WorkSans" }}>Address Details</Text>
       </View>
       <ScrollView
         style={{
@@ -47,25 +47,25 @@ const Address = () => {
         >
           <View style={{ alignItems: "center" }}>
             <Ionicons name="checkmark-circle" size={24} color="#3f3f47" />
-            <Text style={{ color: "#3f3f47" }}>Address</Text>
+            <Text style={{ color: "#3f3f47", fontFamily: "WorkSans" }}>Address</Text>
           </View>
           <View
             style={{ flex: 1, borderWidth: 0.7, alignSelf: "center" }}
           ></View>
           <View style={{ alignItems: "center" }}>
             <Ionicons name="checkmark-circle-outline" size={24} color="black" />
-            <Text>Order Summary</Text>
+            <Text style={{fontFamily: "WorkSans"}}>Order Summary</Text>
           </View>
           <View
             style={{ flex: 1, borderWidth: 0.7, alignSelf: "center" }}
           ></View>
           <View style={{ alignItems: "center" }}>
             <Ionicons name="checkmark-circle-outline" size={24} color="black" />
-            <Text>Payment</Text>
+            <Text style={{fontFamily: "WorkSans"}}>Payment</Text>
           </View>
         </View>
         <View style={{ marginVertical: 20 }}>
-          <Text style={{ fontSize: 20 }}>Shipping Information</Text>
+          <Text style={{ fontSize: 20, fontFamily: "WorkSans" }}>Shipping Information</Text>
         </View>
 
         <View style={{ gap: 10 }}>
@@ -75,6 +75,7 @@ const Address = () => {
               backgroundColor: "#F9F4EE",
               padding: 15,
               borderRadius: 10,
+              fontFamily: "WorkSans"
             }}
           />
           <TextInput
@@ -83,6 +84,7 @@ const Address = () => {
               backgroundColor: "#F9F4EE",
               padding: 15,
               borderRadius: 10,
+              fontFamily: "WorkSans"
             }}
           />
           <TextInput
@@ -91,6 +93,7 @@ const Address = () => {
               backgroundColor: "#F9F4EE",
               padding: 15,
               borderRadius: 10,
+              fontFamily: "WorkSans"
             }}
           />
           <View style={{ flexDirection: "row", gap: 10 }}>
@@ -101,6 +104,7 @@ const Address = () => {
                 padding: 15,
                 borderRadius: 10,
                 flex: 1,
+                fontFamily: "WorkSans"
               }}
             />
             <TextInput
@@ -110,6 +114,7 @@ const Address = () => {
                 padding: 15,
                 borderRadius: 10,
                 flex: 1,
+                fontFamily: "WorkSans"
               }}
             />
           </View>
@@ -121,6 +126,7 @@ const Address = () => {
                 padding: 15,
                 borderRadius: 10,
                 flex: 1,
+                fontFamily: "WorkSans"
               }}
             />
             <TextInput
@@ -130,6 +136,7 @@ const Address = () => {
                 padding: 15,
                 borderRadius: 10,
                 flex: 1,
+                fontFamily: "WorkSans"
               }}
             />
           </View>
@@ -147,7 +154,7 @@ const Address = () => {
         }}
         onPress={()=> navigation.navigate("OrderSummary")}
       >
-        <Text style={{ color: "white" }}>Procced</Text>
+        <Text style={{ color: "white", fontFamily: "WorkSans" }}>Procced</Text>
       </TouchableOpacity>
     </View>
   );

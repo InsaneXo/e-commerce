@@ -4,22 +4,33 @@ import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { cartSliceAction, wishListAction } from "../redux/features";
+import { MaterialIcons } from "@expo/vector-icons";
 
-const WishlistItem = ({ id, name, previousPrice, currentPrice, image }) => {
+const WishlistItem = ({
+  id,
+  name,
+  previousPrice,
+  currentPrice,
+  image,
+  quantity,
+}) => {
   const cart = useSelector((store) => store.cart);
+
+  const index = cart.findIndex((item) => item.id === id);
 
   // Search in the store and check id. If present return true otherwise false
   const isIsCart = cart.some((item) => item.id === id);
 
   const dispatch = useDispatch();
 
-  const addToCart = () => {
+  const addToCartHandler = () => {
     const payload = {
       id,
       name,
       previousPrice,
       currentPrice,
       image,
+      quantity,
     };
     dispatch(cartSliceAction.addToCart(payload));
   };
@@ -89,24 +100,25 @@ const WishlistItem = ({ id, name, previousPrice, currentPrice, image }) => {
                 backgroundColor: "#DDDDDD",
               }}
             >
-              <Text style={{}}>Added</Text>
+              <Text>Added</Text>
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
               style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
                 flex: 1,
-                height: 45,
+                flexDirection: "row",
+                paddingVertical: 10,
+                gap: 3,
                 borderRadius: 10,
-                alignItems: "center",
                 justifyContent: "center",
-                paddingHorizontal: 10,
+                alignItems: "center",
+                marginVertical: 10,
                 backgroundColor: "#3f3f47",
               }}
-              onPress={addToCart}
+              onPress={addToCartHandler}
             >
-              <Text style={{ color: "white" }}>Add to cart</Text>
+              <MaterialIcons name="add-shopping-cart" size={24} color="white" />
+              <Text style={{ color: "white" }}>Add to Cart</Text>
             </TouchableOpacity>
           )}
           <TouchableOpacity onPress={deleteFromWislist}>

@@ -3,8 +3,16 @@ import React, { useEffect } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { cartSliceAction, wishListAction } from "../redux/features";
+import { MaterialIcons } from "@expo/vector-icons";
 
-const HotItem = ({ id, name, image, previousPrice, currentPrice, quantity }) => {
+const HotItem = ({
+  id,
+  name,
+  image,
+  previousPrice,
+  currentPrice,
+  quantity,
+}) => {
   const dispatch = useDispatch();
 
   const cartItems = useSelector((state) => state.cart);
@@ -21,11 +29,10 @@ const HotItem = ({ id, name, image, previousPrice, currentPrice, quantity }) => 
       image,
       previousPrice,
       currentPrice,
-      quantity
+      quantity,
     };
     dispatch(cartSliceAction.addToCart(payload));
   };
-
 
   const deleteFromCart = () => {
     dispatch(cartSliceAction.deleteFromCart(id));
@@ -38,6 +45,7 @@ const HotItem = ({ id, name, image, previousPrice, currentPrice, quantity }) => 
       image,
       previousPrice,
       currentPrice,
+      quantity,
     };
     dispatch(wishListAction.addToWishlist(payload));
   };
@@ -47,13 +55,12 @@ const HotItem = ({ id, name, image, previousPrice, currentPrice, quantity }) => 
   };
 
   return (
-    <View style={{ width: 183 }}>
+    <View style={{ width: 188 }}>
       <View
         style={{
-          height: 170,
-          width: 183,
+          height: 200,
           backgroundColor: "#BEF264",
-          borderRadius: 10,
+          borderRadius: 6,
           overflow: "hidden",
         }}
       >
@@ -61,9 +68,8 @@ const HotItem = ({ id, name, image, previousPrice, currentPrice, quantity }) => 
         {isInWishList ? (
           <TouchableOpacity
             style={{
-              height: 40,
-              width: 40,
-              backgroundColor: "#F9F4EE",
+              height: 30,
+              width: 30,
               position: "absolute",
               right: 8,
               top: 6,
@@ -73,14 +79,13 @@ const HotItem = ({ id, name, image, previousPrice, currentPrice, quantity }) => 
             }}
             onPress={deleteFromWishlist}
           >
-            <AntDesign name="heart" size={24} color="red" />
+            <AntDesign name="heart" size={18} color="red" />
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
             style={{
-              height: 40,
-              width: 40,
-              backgroundColor: "#F9F4EE",
+              height: 30,
+              width: 30,
               position: "absolute",
               right: 8,
               top: 6,
@@ -90,24 +95,55 @@ const HotItem = ({ id, name, image, previousPrice, currentPrice, quantity }) => 
             }}
             onPress={addToWishlistHandler}
           >
-            <AntDesign name="hearto" size={24} color="black" />
+            <AntDesign name="hearto" size={18} color="black" />
           </TouchableOpacity>
         )}
       </View>
-      <View>
-        <Text style={{ fontSize: 17 }} numberOfLines={1}>
+      <View style={{ paddingVertical: 10 }}>
+        <Text
+          style={{ fontSize: 17, fontFamily: "WorkSans", textAlign: "center" }}
+          numberOfLines={2}
+        >
           {name}
         </Text>
-        <Text style={{ textDecorationLine: "line-through", color: "pink" }}>
-          {previousPrice}
-        </Text>
-        <Text style={{ color: "red" }}>{currentPrice}</Text>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 8,
+          }}
+        >
+          <Text
+            style={{
+              color: "red",
+              fontSize: 23,
+              fontFamily: "WorkSans",
+              textAlign: "center",
+            }}
+          >
+            ₹ {currentPrice}
+          </Text>
+          <Text
+            style={{
+              textDecorationLine: "line-through",
+              color: "pink",
+              fontSize: 17,
+              fontFamily: "WorkSans",
+              textAlign: "center",
+            }}
+          >
+            {previousPrice}
+          </Text>
+        </View>
+
         {isInCart ? (
           <TouchableOpacity
             style={{
               flex: 1,
-              backgroundColor: "red",
-              height: 40,
+              flexDirection: "row",
+              paddingVertical: 10,
+              gap: 3,
               borderRadius: 10,
               justifyContent: "center",
               alignItems: "center",
@@ -115,14 +151,18 @@ const HotItem = ({ id, name, image, previousPrice, currentPrice, quantity }) => 
             }}
             onPress={deleteFromCart}
           >
-            <Text style={{ color: "white" }}>Remove From Cart</Text>
+            <MaterialIcons name="remove-shopping-cart" size={24} color="red" />
+            <Text style={{ color: "red", fontFamily: "WorkSans" }}>
+              Remove From Cart
+            </Text>
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
             style={{
               flex: 1,
-              backgroundColor: "#F9F4EE",
-              height: 40,
+              flexDirection: "row",
+              paddingVertical: 10,
+              gap: 3,
               borderRadius: 10,
               justifyContent: "center",
               alignItems: "center",
@@ -130,7 +170,8 @@ const HotItem = ({ id, name, image, previousPrice, currentPrice, quantity }) => 
             }}
             onPress={addToCartHandler}
           >
-            <Text>Add to Cart</Text>
+            <MaterialIcons name="add-shopping-cart" size={24} color="black" />
+            <Text style={{ fontFamily: "WorkSans" }}>Add to Cart</Text>
           </TouchableOpacity>
         )}
       </View>

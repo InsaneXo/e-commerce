@@ -9,6 +9,7 @@ import { debounce } from "lodash";
 const CartItems = ({ id, name, previousPrice, currentPrice, image }) => {
   const cart = useSelector((store) => store.cart);
   const dispatch = useDispatch();
+
   const index = cart.findIndex((item) => item.id === id);
   const [quantity, setQuantity] = useState(cart[index]?.quantity || 1);
 
@@ -16,7 +17,7 @@ const CartItems = ({ id, name, previousPrice, currentPrice, image }) => {
     dispatch(cartSliceAction.deleteFromCart(id));
   };
 
-  // This function for debouce if user tap multiple - or + 
+  // This function for debouce if user tap multiple - or +
 
   const updateQuantityHandler = useRef(
     debounce((quantity) => {
@@ -25,7 +26,6 @@ const CartItems = ({ id, name, previousPrice, currentPrice, image }) => {
     }, 500)
   ).current;
 
- 
   useEffect(() => {
     updateQuantityHandler(quantity);
     return () => {
@@ -67,17 +67,20 @@ const CartItems = ({ id, name, previousPrice, currentPrice, image }) => {
       </View>
       <View style={{ flex: 1, justifyContent: "space-around" }}>
         <View>
-          <Text style={{ fontSize: 20 }}>{name}</Text>
+          <Text style={{ fontSize: 20, fontFamily: "WorkSans" }}>{name}</Text>
           <Text
             style={{
               color: "pink",
               fontSize: 20,
               textDecorationLine: "line-through",
+              fontFamily: "WorkSans",
             }}
           >
-           ₹ {previousPrice}
+            ₹ {previousPrice}
           </Text>
-          <Text style={{ color: "red", fontSize: 20 }}>₹ {currentPrice}</Text>
+          <Text style={{ color: "red", fontSize: 20, fontFamily: "WorkSans" }}>
+            ₹ {currentPrice}
+          </Text>
         </View>
         <View
           style={{
@@ -101,14 +104,14 @@ const CartItems = ({ id, name, previousPrice, currentPrice, image }) => {
           >
             {quantity === 1 ? (
               <Text
-                style={{ color: "white", fontSize: 20 }}
+                style={{ color: "white", fontSize: 20,  }}
                 onPress={handleDeleteFromCart}
               >
                 -
               </Text>
             ) : (
               <Text
-                style={{ color: "white", fontSize: 20 }}
+                style={{ color: "white", fontSize: 20 , fontFamily: "WorkSans" }}
                 onPress={() => setQuantity((prevVal) => prevVal - 1)}
               >
                 -
