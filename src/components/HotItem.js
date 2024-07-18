@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { cartSliceAction, wishListAction } from "../redux/features";
@@ -14,7 +14,6 @@ const HotItem = ({
   quantity,
 }) => {
   const dispatch = useDispatch();
-
   const cartItems = useSelector((state) => state.cart);
   const wishlistItems = useSelector((state) => state.wishlist);
 
@@ -102,7 +101,7 @@ const HotItem = ({
       <View style={{ paddingVertical: 10 }}>
         <Text
           style={{ fontSize: 17, fontFamily: "WorkSans", textAlign: "center" }}
-          numberOfLines={2}
+          numberOfLines={1}
         >
           {name}
         </Text>

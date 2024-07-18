@@ -11,7 +11,7 @@ import {
   Button,
   Dimensions,
 } from "react-native";
-import React from "react";
+import React, { useRef, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import Card from "../components/Card";
@@ -106,6 +106,128 @@ const circleProductData = [
   },
 ];
 
+const products = {
+  earring: [
+    {
+      id: "1",
+      name: "Elegant jhumka White & Gray",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/8.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "2",
+      name: "Elegant jhumka White & Gray",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/8.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "3",
+      name: "Elegant jhumka White & Gray",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/8.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "4",
+      name: "Elegant jhumka White & Gray",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/8.jpg"),
+      quantity: 1,
+    },
+  ],
+  ring: [
+    {
+      id: "1",
+      name: "Diamond Ring",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/item001.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "2",
+      name: "Diamond Ring",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/item001.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "3",
+      name: "Diamond Ring",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/item001.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "4",
+      name: "Diamond Ring",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/item001.jpg"),
+      quantity: 1,
+    },
+  ],
+  necklace: [
+    {
+      id: "1",
+      name: "Emrald CZ Necklace Set with Big Pendant ",
+      previousPrice: 3000,
+      currentPrice: 2499,
+      image: require("../../assets/images/16.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "2",
+      name: "Emrald CZ Necklace Set with Big Pendant ",
+      previousPrice: 3000,
+      currentPrice: 2499,
+      image: require("../../assets/images/16.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "3",
+      name: "Emrald CZ Necklace Set with Big Pendant ",
+      previousPrice: 3000,
+      currentPrice: 2499,
+      image: require("../../assets/images/16.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "4",
+      name: "Emrald CZ Necklace Set with Big Pendant ",
+      previousPrice: 3000,
+      currentPrice: 2499,
+      image: require("../../assets/images/16.jpg"),
+      quantity: 1,
+    },
+  ],
+};
+
+const categories = [
+  {
+    id: "1",
+    name: "Earring",
+  },
+  {
+    id: "2",
+    name: "Rings",
+  },
+  {
+    id: "3",
+    name: "Necklaces",
+  },
+
+  
+];
+
 const screenWidth = Dimensions.get("window").width;
 
 const renderDotIndicator = () => {
@@ -137,6 +259,7 @@ const handleScroll = (event) => {
 const Home = () => {
   const wishList = useSelector((store) => store.wishlist);
   const navigation = useNavigation();
+  const [tab, setTab] = useState("Earring");
 
   return (
     <>
@@ -185,12 +308,12 @@ const Home = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <ScrollView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
+      <ScrollView
+        style={{ flex: 1, backgroundColor: "#FFFFFF", paddingHorizontal: 10 }}
+      >
         <View
           style={{
             flexDirection: "row",
-            marginVertical: 4,
-
             paddingVertical: 10,
           }}
         >
@@ -222,6 +345,7 @@ const Home = () => {
           showsHorizontalScrollIndicator={false}
           horizontal
           data={data}
+          contentContainerStyle={{ gap: 10 }}
           renderItem={({ item }) => (
             <Card
               name={item.name}
@@ -231,8 +355,6 @@ const Home = () => {
             />
           )}
           keyExtractor={(item) => item.id}
-          pagingEnabled={true}
-          onScroll={handleScroll}
         />
         {/* <View
           style={{
@@ -246,22 +368,44 @@ const Home = () => {
           {renderDotIndicator()}
         </View> */}
 
-        <View style={{ gap: 4, marginBottom: 20 }}>
+        <View
+          style={{
+            gap: 4,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginTop: 15,
+          }}
+        >
           <Text
             style={{
-              fontSize: 30,
+              fontSize: 25,
               fontFamily: "WorkSans",
               textAlign: "center",
             }}
           >
             Top Collection
           </Text>
-          <Text style={{ fontFamily: "WorkSans", textAlign: "center" }}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s,
+          <Text
+            style={{
+              fontFamily: "WorkSans",
+              textAlign: "center",
+              fontSize: 15,
+            }}
+          >
+            See All
           </Text>
         </View>
+        <Text
+          style={{
+            fontFamily: "WorkSans",
+            textAlign: "center",
+            marginVertical: 10,
+            color: "gray",
+          }}
+        >
+          22 Top Products
+        </Text>
         <View
           style={{
             flexDirection: "row",
@@ -283,34 +427,170 @@ const Home = () => {
             />
           ))}
         </View>
-        <TouchableOpacity
+        <View
           style={{
-            backgroundColor: "#F9F4EE",
-            height: 45,
-            borderRadius: 10,
+            gap: 4,
+            flexDirection: "row",
+            justifyContent: "space-between",
             alignItems: "center",
-            justifyContent: "center",
-            marginBottom: 10,
+            marginTop: 15,
           }}
         >
-          <Text style={{ fontFamily: "WorkSans" }}>See All</Text>
-        </TouchableOpacity>
-        <View style={{ gap: 4, marginBottom: 20 }}>
           <Text
             style={{
-              fontSize: 30,
+              fontSize: 25,
+              fontFamily: "WorkSans",
+              textAlign: "center",
+            }}
+          >
+            Shop Our Exclusives
+          </Text>
+          <Text
+            style={{
+              fontFamily: "WorkSans",
+              textAlign: "center",
+              fontSize: 15,
+            }}
+          >
+            See All
+          </Text>
+        </View>
+        <Text
+          style={{
+            fontFamily: "WorkSans",
+            color: "gray",
+          }}
+        >
+          22 Exclusives Products
+        </Text>
+        <View>
+          <FlatList
+            data={categories}
+            showsHorizontalScrollIndicator={false}
+            horizontal
+            contentContainerStyle={{ gap: 10 }}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                onPress={() => setTab(item.name)}
+                style={{
+                  paddingVertical: 10,
+                  paddingHorizontal: 30,
+                  borderRadius: 20,
+                  backgroundColor: tab === item.name ? "#3f3f47" : "#F9F4EE",
+                  marginVertical: 10,
+                }}
+              >
+                <Text
+                  style={{
+                    color: tab === item.name ? "white" : "black",
+                    fontFamily: "WorkSans",
+                  }}
+                >
+                  {item.name}
+                </Text>
+              </TouchableOpacity>
+            )}
+          />
+          {tab === "Earring" && (
+            <FlatList
+              data={products.earring}
+              showsHorizontalScrollIndicator={false}
+              horizontal
+              contentContainerStyle={{ gap: 10 }}
+              keyExtractor={(item) => item.id}
+              pagingEnabled={true}
+              renderItem={({ item }) => (
+                <HotItem
+                  id={item.id}
+                  name={item.name}
+                  image={item.image}
+                  previousPrice={item.previousPrice}
+                  currentPrice={item.currentPrice}
+                  quantity={item.quantity}
+                />
+              )}
+            />
+          )}
+          {tab === "Rings" && (
+            <FlatList
+              data={products.ring}
+              showsHorizontalScrollIndicator={false}
+              horizontal
+              contentContainerStyle={{ gap: 10 }}
+              keyExtractor={(item) => item.id}
+              pagingEnabled={true}
+              renderItem={({ item }) => (
+                <HotItem
+                  id={item.id}
+                  name={item.name}
+                  image={item.image}
+                  previousPrice={item.previousPrice}
+                  currentPrice={item.currentPrice}
+                  quantity={item.quantity}
+                />
+              )}
+            />
+          )}
+          {tab === "Necklaces" && (
+            <FlatList
+              data={products.necklace}
+              showsHorizontalScrollIndicator={false}
+              horizontal
+              contentContainerStyle={{ gap: 10 }}
+              keyExtractor={(item) => item.id}
+              pagingEnabled={true}
+              renderItem={({ item }) => (
+                <HotItem
+                  id={item.id}
+                  name={item.name}
+                  image={item.image}
+                  previousPrice={item.previousPrice}
+                  currentPrice={item.currentPrice}
+                  quantity={item.quantity}
+                />
+              )}
+            />
+          )}
+        </View>
+        <View
+          style={{
+            gap: 4,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginTop: 15,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 25,
               fontFamily: "WorkSans",
               textAlign: "center",
             }}
           >
             New Collection
           </Text>
-          <Text style={{ fontFamily: "WorkSans", textAlign: "center" }}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s,
+          <Text
+            style={{
+              fontFamily: "WorkSans",
+              textAlign: "center",
+              fontSize: 15,
+            }}
+          >
+            See All
           </Text>
         </View>
+        <Text
+          style={{
+            fontFamily: "WorkSans",
+            textAlign: "center",
+            marginVertical: 10,
+            color: "gray",
+          }}
+        >
+          22 New Products
+        </Text>
         <View
           style={{
             flexDirection: "row",
@@ -330,18 +610,6 @@ const Home = () => {
             />
           ))}
         </View>
-        <TouchableOpacity
-          style={{
-            backgroundColor: "#F9F4EE",
-            height: 45,
-            borderRadius: 10,
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: 10,
-          }}
-        >
-          <Text style={{ fontFamily: "WorkSans" }}>See All</Text>
-        </TouchableOpacity>
       </ScrollView>
     </>
   );
