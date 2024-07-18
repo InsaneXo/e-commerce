@@ -16,9 +16,8 @@ import Wishlist from "../screen/Wishlist";
 const Tab = createBottomTabNavigator();
 
 const MainTabNavigator = () => {
-  
   const items = useSelector((store) => store.cart);
-  const wishlistItem = useSelector((store)=> store.wishlist)
+  const wishlistItem = useSelector((store) => store.wishlist);
 
   return (
     <Tab.Navigator
@@ -73,13 +72,14 @@ const MainTabNavigator = () => {
                   style={{
                     position: "absolute",
                     right: -4,
-                    top: -15,
+                    top: -8,
                     backgroundColor: "red",
                     height: 16,
                     width: 15,
                     borderRadius: 50,
                     justifyContent: "center",
                     alignItems: "center",
+                    zIndex:10
                   }}
                 >
                   <Text style={{ color: "white" }}>{items.length}</Text>
@@ -87,38 +87,6 @@ const MainTabNavigator = () => {
               )}
 
               <FontAwesome5 name="shopping-cart" size={size} color={color} />
-            </View>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Wishlist"
-        component={Wishlist}
-        options={{
-          headerShown: false,
-          tabBarInactiveTintColor: "#524C42",
-          tabBarActiveTintColor: "black",
-          tabBarIcon: ({ color, size }) => (
-            <View style={{ position: "relative" }}>
-              {wishlistItem.length === 0 ? null : (
-                <View
-                  style={{
-                    position: "absolute",
-                    right: -4,
-                    top: -15,
-                    backgroundColor: "red",
-                    height: 16,
-                    width: 15,
-                    borderRadius: 50,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <Text style={{ color: "white" }}>{wishlistItem.length}</Text>
-                </View>
-              )}
-
-              <AntDesign name="heart" size={size} color={color} />
             </View>
           ),
         }}

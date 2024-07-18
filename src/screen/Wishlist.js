@@ -11,12 +11,32 @@ import { useSelector } from "react-redux";
 import { AntDesign } from "@expo/vector-icons";
 import WishlistItem from "../components/WishlistItem";
 import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
 
 const Wishlist = () => {
   const wishlist = useSelector((store) => store.wishlist);
   const navigation = useNavigation();
   return (
     <>
+      <View
+        style={{
+          backgroundColor: "#ffffff",
+          height: 60,
+          flexDirection: "row",
+          alignItems: "center",
+          paddingHorizontal: 5,
+        }}
+      >
+        <TouchableOpacity
+          style={{ position: "absolute", left: 6 }}
+          onPress={() => navigation.goBack()}
+        >
+          <Ionicons name="arrow-back" size={24} color="black" />
+        </TouchableOpacity>
+        <Text style={{ margin: "auto", fontSize: 20, fontFamily: "WorkSans" }}>
+          Wishlist
+        </Text>
+      </View>
       {wishlist.length === 0 ? (
         <View
           style={{
@@ -47,11 +67,6 @@ const Wishlist = () => {
         <ScrollView
           style={{ flex: 1, backgroundColor: "#FFFFFF", paddingHorizontal: 10 }}
         >
-          <Text
-            style={{ textAlign: "center", fontSize: 20, marginVertical: 15 }}
-          >
-            Wishlist
-          </Text>
           {wishlist.map((item, index) => (
             <WishlistItem
               key={index}

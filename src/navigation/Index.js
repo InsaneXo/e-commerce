@@ -5,6 +5,7 @@ import Address from "../screen/Address";
 import OrderSummary from "../screen/OrderSummary";
 import Payment from "../screen/Payment";
 import OrderSuccessful from "../screen/OrderSuccessful";
+import Wishlist from "../screen/Wishlist";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,11 @@ const Navigator = () => {
         <Stack.Screen
           name="Main"
           component={MainTabNavigator}
+          options={{ headerShown: false, animation: "slide_from_right" }}
+        />
+        <Stack.Screen
+          name="wishlist"
+          component={Wishlist}
           options={{ headerShown: false, animation: "slide_from_right" }}
         />
         <Stack.Screen
