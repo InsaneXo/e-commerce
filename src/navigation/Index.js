@@ -6,6 +6,8 @@ import OrderSummary from "../screen/OrderSummary";
 import Payment from "../screen/Payment";
 import OrderSuccessful from "../screen/OrderSuccessful";
 import Wishlist from "../screen/Wishlist";
+import Products from "../screen/Products";
+import ProductDetails from "../screen/ProductDetails";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +43,16 @@ const Navigator = () => {
         <Stack.Screen
           name="OrderSuccessful"
           component={OrderSuccessful}
+          options={{ headerShown: false, animation: "slide_from_right" }}
+        />
+        <Stack.Screen
+          name="Products"
+          component={Products}
+          options={{ headerShown: false, animation: "slide_from_right" }}
+        />
+        <Stack.Screen
+          name="ProductDetails"
+          component={ProductDetails}
           options={{ headerShown: false, animation: "slide_from_right" }}
         />
       </Stack.Navigator>

@@ -11,7 +11,7 @@ import {
   Button,
   Dimensions,
 } from "react-native";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import Card from "../components/Card";
@@ -81,28 +81,278 @@ const productData = [
 const circleProductData = [
   {
     id: "1",
-    name: "Ear Ring",
-    image: require("../../assets/images/item002.jpg"),
+    name: "Earring",
+    circleImage: require("../../assets/images/item002.jpg"),
+    products: [
+      {
+        id: "1",
+        name: "Elegant jhumka White & Gray",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item002.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "2",
+        name: "Elegant jhumka White & Gray ",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item002.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "3",
+        name: "Elegant jhumka White & Gray ",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item002.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "4",
+        name: "Elegant jhumka White & Gray ",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item002.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "5",
+        name: "Elegant jhumka White & Gray ",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item002.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "6",
+        name: "Elegant jhumka White & Gray ",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item002.jpg"),
+        quantity: 1,
+      },
+    ],
   },
   {
     id: "2",
-    name: "Necklace",
-    image: require("../../assets/images/item004.jpg"),
+    name: "Necklaces",
+    circleImage: require("../../assets/images/item004.jpg"),
+    products: [
+      {
+        id: "1",
+        name: "Emrald CZ Necklace Set with Big Pendant ",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item004.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "2",
+        name: "Emrald CZ Necklace Set with Big Pendant ",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item004.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "3",
+        name: "Emrald CZ Necklace Set with Big Pendant ",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item004.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "4",
+        name: "Emrald CZ Necklace Set with Big Pendant ",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item004.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "5",
+        name: "Emrald CZ Necklace Set with Big Pendant ",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item004.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "6",
+        name: "Emrald CZ Necklace Set with Big Pendant ",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item004.jpg"),
+        quantity: 1,
+      },
+    ],
   },
   {
     id: "3",
-    name: "Ring",
-    image: require("../../assets/images/item001.jpg"),
+    name: "Rings",
+    circleImage: require("../../assets/images/item001.jpg"),
+    products: [
+      {
+        id: "1",
+        name: "Diamond Ring",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item001.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "2",
+        name: "Diamond Ring",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item001.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "3",
+        name: "Diamond Ring",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item001.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "4",
+        name: "Diamond Ring",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item001.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "5",
+        name: "Diamond Ring",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item001.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "6",
+        name: "Diamond Ring",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/item001.jpg"),
+        quantity: 1,
+      },
+    ],
   },
   {
     id: "4",
-    name: "Chain",
-    image: require("../../assets/images/white-gold-chain.jpeg"),
+    name: "Chains",
+    circleImage: require("../../assets/images/white-gold-chain.jpeg"),
+    products: [
+      {
+        id: "1",
+        name: "White Gold Chain",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/white-gold-chain.jpeg"),
+        quantity: 1,
+      },
+      {
+        id: "2",
+        name: "White Gold Chain",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/white-gold-chain.jpeg"),
+        quantity: 1,
+      },
+      {
+        id: "3",
+        name: "White Gold Chain",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/white-gold-chain.jpeg"),
+        quantity: 1,
+      },
+      {
+        id: "4",
+        name: "White Gold Chain",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/white-gold-chain.jpeg"),
+        quantity: 1,
+      },
+      {
+        id: "5",
+        name: "White Gold Chain",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/white-gold-chain.jpeg"),
+        quantity: 1,
+      },
+      {
+        id: "6",
+        name: "White Gold Chain",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/white-gold-chain.jpeg"),
+        quantity: 1,
+      },
+    ],
   },
   {
     id: "5",
     name: "Bracelet",
-    image: require("../../assets/images/bracelet.jpg"),
+    circleImage: require("../../assets/images/bracelet.jpg"),
+    products: [
+      {
+        id: "1",
+        name: "Silver Bracelet",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/bracelet.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "2",
+        name: "Silver Bracelet",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/bracelet.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "3",
+        name: "Silver Bracelet",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/bracelet.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "4",
+        name: "Silver Bracelet",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/bracelet.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "5",
+        name: "Silver Bracelet",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/bracelet.jpg"),
+        quantity: 1,
+      },
+      {
+        id: "6",
+        name: "Silver Bracelet",
+        previousPrice: 3000,
+        currentPrice: 2499,
+        image: require("../../assets/images/bracelet.jpg"),
+        quantity: 1,
+      },
+    ],
   },
 ];
 
@@ -224,8 +474,6 @@ const categories = [
     id: "3",
     name: "Necklaces",
   },
-
-  
 ];
 
 const screenWidth = Dimensions.get("window").width;
@@ -325,8 +573,8 @@ const Home = () => {
             renderItem={({ item }) => (
               <CircleItems
                 name={item.name}
-                price={item.price}
-                image={item.image}
+                circleImage={item.circleImage}
+                products={item.products}
               />
             )}
             keyExtractor={(item) => item.id}
@@ -607,6 +855,7 @@ const Home = () => {
               image={item.image}
               previousPrice={item.previousPrice}
               currentPrice={item.currentPrice}
+              quantity={item.quantity}
             />
           ))}
         </View>

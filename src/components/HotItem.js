@@ -4,6 +4,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { cartSliceAction, wishListAction } from "../redux/features";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const HotItem = ({
   id,
@@ -16,10 +17,20 @@ const HotItem = ({
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
   const wishlistItems = useSelector((state) => state.wishlist);
+  const navigation = useNavigation();
 
   // Search in the store and check id. If present return true otherwise false
   const isInCart = cartItems.some((item) => item.id === id);
   const isInWishList = wishlistItems.some((item) => item.id === id);
+
+  const payload = {
+    id: id,
+    name: name,
+    image: image,
+    previousPrice: previousPrice,
+    currentPrice: currentPrice,
+    quantity,
+  };
 
   const addToCartHandler = () => {
     const payload = {
@@ -55,13 +66,14 @@ const HotItem = ({
 
   return (
     <View style={{ width: 188 }}>
-      <View
+      <TouchableOpacity
         style={{
           height: 200,
           backgroundColor: "#BEF264",
           borderRadius: 6,
           overflow: "hidden",
         }}
+        onPress={() => navigation.navigate("ProductDetails", payload)}
       >
         <Image source={image} style={{ width: "100%", height: "100%" }} />
         {isInWishList ? (
@@ -97,7 +109,7 @@ const HotItem = ({
             <AntDesign name="hearto" size={18} color="black" />
           </TouchableOpacity>
         )}
-      </View>
+      </TouchableOpacity>
       <View style={{ paddingVertical: 10 }}>
         <Text
           style={{ fontSize: 17, fontFamily: "WorkSans", textAlign: "center" }}
