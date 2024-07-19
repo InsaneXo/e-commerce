@@ -77,7 +77,7 @@ const Profile = () => {
             <Text style={{ fontWeight: "bold", fontSize: 20 }}>
               Bipin Singh
             </Text>
-            <Text >vsinghvipin333@gmail.com</Text>
+            <Text>vsinghvipin333@gmail.com</Text>
           </View>
         </View>
         <FontAwesome5 name="bell" size={24} color="white" />
@@ -105,7 +105,7 @@ const Profile = () => {
               {item.icon}
               <Text style={{ fontSize: 17 }}>{item.name}</Text>
             </View>
-            <AntDesign name="right" size={24} color="white" />
+            <AntDesign name="right" size={24} color="black" />
           </View>
         ))}
       </View>

@@ -12,6 +12,7 @@ import CartItems from "../components/CartItems";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
 
 const Cart = () => {
   const cart = useSelector((store) => store.cart);
@@ -21,17 +22,34 @@ const Cart = () => {
   let totalMRP = 0;
   let totalDiscount = 0;
 
-
   cart.forEach((item) => {
-    totalMRP += item.previousPrice * item.quantity
-    totalDiscount += (item.previousPrice - item.currentPrice) * item.quantity 
+    totalMRP += item.previousPrice * item.quantity;
+    totalDiscount += (item.previousPrice - item.currentPrice) * item.quantity;
   });
 
   let finalPayment = totalMRP - totalDiscount;
 
-
   return (
     <>
+      <View
+        style={{
+          backgroundColor: "#ffffff",
+          height: 60,
+          flexDirection: "row",
+          alignItems: "center",
+          paddingHorizontal: 5,
+        }}
+      >
+        <TouchableOpacity
+          style={{ position: "absolute", left: 6 }}
+          onPress={() => navigation.goBack()}
+        >
+          <Ionicons name="arrow-back" size={24} color="black" />
+        </TouchableOpacity>
+        <Text style={{ margin: "auto", fontSize: 20, fontFamily: "WorkSans" }}>
+          Cart
+        </Text>
+      </View>
       {cart.length === 0 ? (
         <View
           style={{
@@ -43,7 +61,9 @@ const Cart = () => {
           }}
         >
           <MaterialIcons name="add-shopping-cart" size={100} color="black" />
-          <Text style={{ fontSize: 40, fontFamily: "WorkSans" }}>Your cart is empty</Text>
+          <Text style={{ fontSize: 40, fontFamily: "WorkSans" }}>
+            Your cart is empty
+          </Text>
           <TouchableOpacity
             style={{
               backgroundColor: "#F9F4EE",
@@ -53,18 +73,13 @@ const Cart = () => {
             }}
             onPress={() => navigation.navigate("Home")}
           >
-            <Text style={{fontFamily: "WorkSans"}}>Shop Now</Text>
+            <Text style={{ fontFamily: "WorkSans" }}>Shop Now</Text>
           </TouchableOpacity>
         </View>
       ) : (
         <ScrollView
           style={{ flex: 1, backgroundColor: "#FFFFFF", paddingHorizontal: 10 }}
         >
-          <Text
-            style={{ textAlign: "center", fontSize: 20, marginVertical: 15, fontFamily: "WorkSans" }}
-          >
-            Cart
-          </Text>
           {cart.map((item, index) => (
             <CartItems
               key={index}
@@ -84,7 +99,9 @@ const Cart = () => {
               marginBottom: 10,
             }}
           >
-            <Text style={{ fontSize: 20, marginBottom: 10, fontFamily: "WorkSans" }}>
+            <Text
+              style={{ fontSize: 20, marginBottom: 10, fontFamily: "WorkSans" }}
+            >
               Your Promo Code
             </Text>
             <View style={{ flexDirection: "row", gap: 10, marginBottom: 10 }}>
@@ -95,7 +112,7 @@ const Cart = () => {
                   padding: 10,
                   borderRadius: 10,
                   flex: 1,
-                  fontFamily: "WorkSans"
+                  fontFamily: "WorkSans",
                 }}
               />
               <TouchableOpacity
@@ -108,7 +125,9 @@ const Cart = () => {
                   alignItems: "center",
                 }}
               >
-                <Text style={{ color: "white", fontFamily: "WorkSans" }}>Apply</Text>
+                <Text style={{ color: "white", fontFamily: "WorkSans" }}>
+                  Apply
+                </Text>
               </TouchableOpacity>
             </View>
             <View
@@ -119,8 +138,12 @@ const Cart = () => {
                 marginBottom: 10,
               }}
             >
-              <Text style={{ fontSize: 20, fontFamily: "WorkSans" }}>Subtotal</Text>
-              <Text style={{ fontSize: 20, fontFamily: "WorkSans" }}>₹ {totalMRP}</Text>
+              <Text style={{ fontSize: 20, fontFamily: "WorkSans" }}>
+                Subtotal
+              </Text>
+              <Text style={{ fontSize: 20, fontFamily: "WorkSans" }}>
+                ₹ {totalMRP}
+              </Text>
             </View>
             <View
               style={{
@@ -130,8 +153,14 @@ const Cart = () => {
                 marginBottom: 10,
               }}
             >
-              <Text style={{ fontSize: 20, color: "pink", fontFamily: "WorkSans" }}>Discount</Text>
-              <Text style={{ fontSize: 20, color: "pink", fontFamily: "WorkSans" }}>
+              <Text
+                style={{ fontSize: 20, color: "pink", fontFamily: "WorkSans" }}
+              >
+                Discount
+              </Text>
+              <Text
+                style={{ fontSize: 20, color: "pink", fontFamily: "WorkSans" }}
+              >
                 - ₹ {totalDiscount}
               </Text>
             </View>
@@ -146,7 +175,9 @@ const Cart = () => {
                 paddingBottom: 25,
               }}
             >
-              <Text style={{ fontSize: 20, fontFamily: "WorkSans" }}>Shipping Charge</Text>
+              <Text style={{ fontSize: 20, fontFamily: "WorkSans" }}>
+                Shipping Charge
+              </Text>
               <Text style={{ fontSize: 20, fontFamily: "WorkSans" }}>Free</Text>
             </View>
             <View
@@ -157,8 +188,14 @@ const Cart = () => {
                 marginBottom: 10,
               }}
             >
-              <Text style={{ fontSize: 20, color: "red", fontFamily: "WorkSans" }}>Total</Text>
-              <Text style={{ fontSize: 20, color: "red", fontFamily: "WorkSans" }}>
+              <Text
+                style={{ fontSize: 20, color: "red", fontFamily: "WorkSans" }}
+              >
+                Total
+              </Text>
+              <Text
+                style={{ fontSize: 20, color: "red", fontFamily: "WorkSans" }}
+              >
                 ₹ {finalPayment}
               </Text>
             </View>
@@ -170,7 +207,7 @@ const Cart = () => {
                 borderRadius: 50,
                 backgroundColor: "#3f3f47",
               }}
-              onPress={()=> navigation.navigate('Address')}
+              onPress={() => navigation.navigate("Address")}
             >
               <Text
                 style={{ color: "white", fontFamily: "WorkSans" }}

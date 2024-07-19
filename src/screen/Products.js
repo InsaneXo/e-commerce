@@ -15,6 +15,7 @@ import HotItem from "../components/HotItem";
 
 const Products = (props) => {
   const wishList = useSelector((store) => store.wishlist);
+  const cart = useSelector((store)=> store.cart)
   const navigation = useNavigation();
   const { name, products } = props.route.params;
 
@@ -48,9 +49,9 @@ const Products = (props) => {
         </View>
         <View style={{ flexDirection: "row", gap: 10 }}>
           <AntDesign name="search1" size={24} color="black" />
-          <TouchableOpacity onPress={() => navigation.navigate("wishlist")}>
+          <TouchableOpacity onPress={() => navigation.navigate("cart")}>
             <View style={{ position: "relative" }}>
-              {wishList.length === 0 ? null : (
+              {cart.length === 0 ? null : (
                 <View
                   style={{
                     position: "absolute",
@@ -65,7 +66,7 @@ const Products = (props) => {
                     zIndex: 10,
                   }}
                 >
-                  <Text style={{ color: "white" }}>{wishList.length}</Text>
+                  <Text style={{ color: "white" }}>{cart.length}</Text>
                 </View>
               )}
               <AntDesign name="shoppingcart" size={24} color="black" />

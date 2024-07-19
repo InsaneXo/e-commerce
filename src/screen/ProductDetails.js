@@ -1,4 +1,5 @@
 import {
+  DevSettings,
   FlatList,
   Image,
   ScrollView,
@@ -9,10 +10,11 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import HotItem from "../components/HotItem";
+import { cartSliceAction, wishListAction } from "../redux/features";
 
 const productData = [
   {
@@ -51,9 +53,41 @@ const productData = [
 
 const ProductDetails = (props) => {
   const wishList = useSelector((store) => store.wishlist);
-  const navigation = useNavigation();
+  const cart = useSelector((store) => store.cart);
   const { id, name, image, previousPrice, currentPrice, quantity } =
     props.route.params;
+  const [refresh, setRefresh] = useState(0);
+
+  const payload = {
+    id: id,
+    name: name,
+    image: image,
+    previousPrice: previousPrice,
+    currentPrice: currentPrice,
+    quantity: quantity,
+  };
+
+  const isInCart = cart.some((item) => item.id === id);
+  const isInWishList = wishList.some((item) => item.id === id);
+
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    dispatch(cartSliceAction.addToCart(payload));
+  };
+  const addToWishList = () => {
+    dispatch(wishListAction.addToWishlist(payload));
+  };
+
+  const deleteFromWishlist = () => {
+    dispatch(wishListAction.deleteFromWishlist(payload.id));
+  };
+
+  useEffect(() => {
+    setRefresh((prevRefresh) => prevRefresh + 1);
+  }, [props.route.params]);
+
   return (
     <>
       <View
@@ -84,9 +118,9 @@ const ProductDetails = (props) => {
         </View>
         <View style={{ flexDirection: "row", gap: 10 }}>
           <AntDesign name="search1" size={24} color="black" />
-          <TouchableOpacity onPress={() => navigation.navigate("wishlist")}>
+          <TouchableOpacity onPress={() => navigation.navigate("cart")}>
             <View style={{ position: "relative" }}>
-              {wishList.length === 0 ? null : (
+              {cart.length === 0 ? null : (
                 <View
                   style={{
                     position: "absolute",
@@ -101,7 +135,7 @@ const ProductDetails = (props) => {
                     zIndex: 10,
                   }}
                 >
-                  <Text style={{ color: "white" }}>{wishList.length}</Text>
+                  <Text style={{ color: "white" }}>{cart.length}</Text>
                 </View>
               )}
               <AntDesign name="shoppingcart" size={24} color="black" />
@@ -132,12 +166,9 @@ const ProductDetails = (props) => {
           </TouchableOpacity>
         </View>
       </View>
-      <ScrollView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
+      <ScrollView key={refresh} style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
         <View style={{ height: 420 }}>
-          <Image
-            source={image}
-            style={{ height: "100%", width: "100%" }}
-          />
+          <Image source={image} style={{ height: "100%", width: "100%" }} />
         </View>
         <View
           style={{
@@ -325,31 +356,65 @@ const ProductDetails = (props) => {
           gap: 12,
         }}
       >
-        <TouchableOpacity
-          style={{
-            padding: 10,
-            borderColor: "#F9F4EE",
-            borderWidth: 1,
-            borderRadius: 10,
-          }}
-        >
-          <AntDesign name="hearto" size={24} color="black" />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            flex: 1,
-            padding: 15,
-            backgroundColor: "#3f3f47",
-            alignItems: "center",
-            borderRadius: 10,
-          }}
-        >
-          <Text
-            style={{ fontSize: 20, fontFamily: "WorkSans", color: "white" }}
+        {isInWishList ? (
+          <TouchableOpacity
+            style={{
+              padding: 10,
+              borderColor: "#F9F4EE",
+              borderWidth: 1,
+              borderRadius: 10,
+            }}
+            onPress={deleteFromWishlist}
           >
-            Add to Cart
-          </Text>
-        </TouchableOpacity>
+            <AntDesign name="heart" size={24} color="red" />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            style={{
+              padding: 10,
+              borderColor: "#F9F4EE",
+              borderWidth: 1,
+              borderRadius: 10,
+            }}
+            onPress={addToWishList}
+          >
+            <AntDesign name="hearto" size={24} color="black" />
+          </TouchableOpacity>
+        )}
+
+        {isInCart ? (
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              padding: 15,
+              backgroundColor: "#F9F5EE",
+              alignItems: "center",
+              borderRadius: 10,
+            }}
+            onPress={() => navigation.navigate("cart")}
+          >
+            <Text style={{ fontSize: 20, fontFamily: "WorkSans" }}>
+              Go to Cart
+            </Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              padding: 15,
+              backgroundColor: "#3f3f47",
+              alignItems: "center",
+              borderRadius: 10,
+            }}
+            onPress={addToCart}
+          >
+            <Text
+              style={{ fontSize: 20, fontFamily: "WorkSans", color: "white" }}
+            >
+              Add to Cart
+            </Text>
+          </TouchableOpacity>
+        )}
       </View>
     </>
   );

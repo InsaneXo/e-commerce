@@ -557,7 +557,7 @@ const Home = () => {
         </View>
       </View>
       <ScrollView
-        style={{ flex: 1, backgroundColor: "#FFFFFF", paddingHorizontal: 10 }}
+        style={{ flex: 1, backgroundColor: "#FFFFFF", paddingHorizontal:10}}
       >
         <View
           style={{
@@ -594,6 +594,9 @@ const Home = () => {
           horizontal
           data={data}
           contentContainerStyle={{ gap: 10 }}
+          pagingEnabled={true}
+          snapToAlignment="start"
+          
           renderItem={({ item }) => (
             <Card
               name={item.name}
@@ -639,9 +642,10 @@ const Home = () => {
               fontFamily: "WorkSans",
               textAlign: "center",
               fontSize: 15,
+              color:"red"
             }}
           >
-            See All
+            View All
           </Text>
         </View>
         <Text
@@ -698,9 +702,10 @@ const Home = () => {
               fontFamily: "WorkSans",
               textAlign: "center",
               fontSize: 15,
+              color:"red"
             }}
           >
-            See All
+            View All
           </Text>
         </View>
         <Text
@@ -824,9 +829,10 @@ const Home = () => {
               fontFamily: "WorkSans",
               textAlign: "center",
               fontSize: 15,
+              color:"red"
             }}
           >
-            See All
+            View All
           </Text>
         </View>
         <Text

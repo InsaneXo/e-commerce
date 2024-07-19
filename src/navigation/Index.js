@@ -8,6 +8,7 @@ import OrderSuccessful from "../screen/OrderSuccessful";
 import Wishlist from "../screen/Wishlist";
 import Products from "../screen/Products";
 import ProductDetails from "../screen/ProductDetails";
+import Cart from "../screen/Cart";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,11 @@ const Navigator = () => {
         <Stack.Screen
           name="wishlist"
           component={Wishlist}
+          options={{ headerShown: false, animation: "slide_from_right" }}
+        />
+        <Stack.Screen
+          name="cart"
+          component={Cart}
           options={{ headerShown: false, animation: "slide_from_right" }}
         />
         <Stack.Screen
