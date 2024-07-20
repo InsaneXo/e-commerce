@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useEffect } from "react";
+import React from "react";
 import CartItems from "../components/CartItems";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useSelector } from "react-redux";

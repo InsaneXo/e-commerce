@@ -5,10 +5,19 @@ import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { cartSliceAction } from "../redux/features";
 import { debounce } from "lodash";
+import { useNavigation } from "@react-navigation/native";
 
 const CartItems = ({ id, name, previousPrice, currentPrice, image }) => {
   const cart = useSelector((store) => store.cart);
   const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const payload = {
+    id: id,
+    name: name,
+    previousPrice: previousPrice,
+    currentPrice: currentPrice,
+    image: image,
+  };
 
   const index = cart.findIndex((item) => item.id === id);
   const [quantity, setQuantity] = useState(cart[index]?.quantity || 1);
@@ -52,19 +61,20 @@ const CartItems = ({ id, name, previousPrice, currentPrice, image }) => {
         marginBottom: 10,
       }}
     >
-      <View
+      <TouchableOpacity
         style={{
           backgroundColor: "white",
           width: 150,
           overflow: "hidden",
           borderRadius: 10,
         }}
+        onPress={() => navigation.navigate("ProductDetails", payload)}
       >
         <Image
           source={image}
           style={{ objectFit: "fill", width: "100%", height: "100%" }}
         />
-      </View>
+      </TouchableOpacity>
       <View style={{ flex: 1, justifyContent: "space-around" }}>
         <View>
           <Text style={{ fontSize: 20, fontFamily: "WorkSans" }}>{name}</Text>
@@ -104,14 +114,14 @@ const CartItems = ({ id, name, previousPrice, currentPrice, image }) => {
           >
             {quantity === 1 ? (
               <Text
-                style={{ color: "white", fontSize: 20,  }}
+                style={{ color: "white", fontSize: 20 }}
                 onPress={handleDeleteFromCart}
               >
                 -
               </Text>
             ) : (
               <Text
-                style={{ color: "white", fontSize: 20 , fontFamily: "WorkSans" }}
+                style={{ color: "white", fontSize: 20, fontFamily: "WorkSans" }}
                 onPress={() => setQuantity((prevVal) => prevVal - 1)}
               >
                 -

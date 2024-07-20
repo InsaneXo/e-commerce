@@ -19,26 +19,27 @@ import HotItem from "../components/HotItem";
 import { useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import CircleItems from "../components/CircleItems";
+import VerticalBox from "../components/VerticalBox";
 
 const data = [
   {
     id: "1",
-    name: "Ear Rings",
+    name: "All Jewellery",
     image: require("../../assets/images/1.jpg"),
   },
   {
     id: "2",
-    name: "Wedding Rings",
+    name: "All Jewellery",
     image: require("../../assets/images/2.jpg"),
   },
   {
     id: "3",
-    name: "Gold Chain",
+    name: "All Jewellery",
     image: require("../../assets/images/3.jpg"),
   },
   {
     id: "4",
-    name: "Bracelet",
+    name: "All Jewellery",
     image: require("../../assets/images/4.jpg"),
   },
 ];
@@ -70,6 +71,38 @@ const productData = [
   },
   {
     id: "4",
+    name: "Diamond Ring",
+    previousPrice: 1000,
+    currentPrice: 799,
+    image: require("../../assets/images/item001.jpg"),
+    quantity: 1,
+  },
+  {
+    id: "5",
+    name: "Elegant jhumka White & Gray",
+    previousPrice: 1000,
+    currentPrice: 799,
+    image: require("../../assets/images/8.jpg"),
+    quantity: 1,
+  },
+  {
+    id: "6",
+    name: "Emrald CZ Necklace Set with Big Pendant ",
+    previousPrice: 3000,
+    currentPrice: 2499,
+    image: require("../../assets/images/16.jpg"),
+    quantity: 1,
+  },
+  {
+    id: "7",
+    name: "White Gold Chain",
+    previousPrice: 1000,
+    currentPrice: 799,
+    image: require("../../assets/images/white-gold-chain.jpeg"),
+    quantity: 1,
+  },
+  {
+    id: "8",
     name: "Diamond Ring",
     previousPrice: 1000,
     currentPrice: 799,
@@ -476,51 +509,28 @@ const categories = [
   },
 ];
 
-const screenWidth = Dimensions.get("window").width;
-
-const renderDotIndicator = () => {
-  return data.map((dot, index) => {
-    return (
-      <View
-        key={index}
-        style={{
-          backgroundColor: "red",
-          height: 10,
-          width: 10,
-          borderRadius: 5,
-        }}
-      ></View>
-    );
-  });
-};
-
-const handleScroll = (event) => {
-  // Get the scroll Position
-  const scrollPosition = Math.floor(event.nativeEvent.contentOffset.x);
-  console.log({ scrollPosition });
-
-  // Get the index of current active item
-  const index = Math.floor(scrollPosition / screenWidth);
-  console.log({ index });
-};
-
 const Home = () => {
   const wishList = useSelector((store) => store.wishlist);
   const navigation = useNavigation();
   const [tab, setTab] = useState("Earring");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleScroll = (event) => {
+    const scrollPosition = event.nativeEvent.contentOffset.x;
+    const index = Math.round(scrollPosition / Dimensions.get("window").width);
+    setCurrentIndex(index);
+  };
 
   return (
     <>
       <View
         style={{
           flexDirection: "row",
-          paddingVertical: 25,
+          paddingVertical: 20,
           paddingHorizontal: 10,
           alignItems: "center",
           justifyContent: "space-between",
           backgroundColor: "#ffffff",
-          borderBottomWidth: 0.2,
-          borderColor: "gray",
         }}
       >
         <Text
@@ -529,7 +539,6 @@ const Home = () => {
           Sundaram
         </Text>
         <View style={{ flexDirection: "row", gap: 10 }}>
-          <MaterialIcons name="support-agent" size={24} color="black" />
           <AntDesign name="search1" size={24} color="black" />
           <TouchableOpacity onPress={() => navigation.navigate("wishlist")}>
             <View style={{ position: "relative" }}>
@@ -556,314 +565,310 @@ const Home = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <ScrollView
-        style={{ flex: 1, backgroundColor: "#FFFFFF", paddingHorizontal:10}}
-      >
-        <View
-          style={{
-            flexDirection: "row",
-            paddingVertical: 10,
-          }}
-        >
+      <ScrollView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
+        <View style={{ position: "relative" }}>
           <FlatList
             showsHorizontalScrollIndicator={false}
             horizontal
-            contentContainerStyle={{ gap: 25 }}
-            data={circleProductData}
+            data={data}
+            pagingEnabled
+            snapToAlignment="start"
             renderItem={({ item }) => (
-              <CircleItems
+              <Card
                 name={item.name}
-                circleImage={item.circleImage}
-                products={item.products}
+                price={item.price}
+                image={item.image}
+                productData={productData}
               />
             )}
             keyExtractor={(item) => item.id}
+            onScroll={handleScroll}
+            scrollEventThrottle={16}
+            decelerationRate={"normal"}
+            bounces={false}
           />
-        </View>
-        <View
-          style={{
-            flexDirection: "row",
-            gap: 10,
-            marginVertical: 10,
-            alignItems: "center",
-          }}
-        ></View>
-
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          horizontal
-          data={data}
-          contentContainerStyle={{ gap: 10 }}
-          pagingEnabled={true}
-          snapToAlignment="start"
-          
-          renderItem={({ item }) => (
-            <Card
-              name={item.name}
-              price={item.price}
-              image={item.image}
-              screenWidth={screenWidth}
-            />
-          )}
-          keyExtractor={(item) => item.id}
-        />
-        {/* <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 3,
-            marginVertical: 10,
-          }}
-        >
-          {renderDotIndicator()}
-        </View> */}
-
-        <View
-          style={{
-            gap: 4,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginTop: 15,
-          }}
-        >
-          <Text
+          <View
             style={{
-              fontSize: 25,
-              fontFamily: "WorkSans",
-              textAlign: "center",
+              flexDirection: "row",
+              gap: 3,
+              marginVertical: 10,
+              position: "absolute",
+              bottom: 0,
+              left: "50%",
+              right: "50%",
+              transform: [{ translateX: -35 }, { translateY: -2 }],
             }}
           >
-            Top Collection
-          </Text>
-          <Text
-            style={{
-              fontFamily: "WorkSans",
-              textAlign: "center",
-              fontSize: 15,
-              color:"red"
-            }}
-          >
-            View All
-          </Text>
-        </View>
-        <Text
-          style={{
-            fontFamily: "WorkSans",
-            textAlign: "center",
-            marginVertical: 10,
-            color: "gray",
-          }}
-        >
-          22 Top Products
-        </Text>
-        <View
-          style={{
-            flexDirection: "row",
-            flexWrap: "wrap",
-
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          {productData.map((item, index) => (
-            <HotItem
-              key={index}
-              id={item.id}
-              name={item.name}
-              image={item.image}
-              previousPrice={item.previousPrice}
-              currentPrice={item.currentPrice}
-              quantity={item.quantity}
-            />
-          ))}
-        </View>
-        <View
-          style={{
-            gap: 4,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginTop: 15,
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 25,
-              fontFamily: "WorkSans",
-              textAlign: "center",
-            }}
-          >
-            Shop Our Exclusives
-          </Text>
-          <Text
-            style={{
-              fontFamily: "WorkSans",
-              textAlign: "center",
-              fontSize: 15,
-              color:"red"
-            }}
-          >
-            View All
-          </Text>
-        </View>
-        <Text
-          style={{
-            fontFamily: "WorkSans",
-            color: "gray",
-          }}
-        >
-          22 Exclusives Products
-        </Text>
-        <View>
-          <FlatList
-            data={categories}
-            showsHorizontalScrollIndicator={false}
-            horizontal
-            contentContainerStyle={{ gap: 10 }}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() => setTab(item.name)}
-                style={{
-                  paddingVertical: 10,
-                  paddingHorizontal: 30,
-                  borderRadius: 20,
-                  backgroundColor: tab === item.name ? "#3f3f47" : "#F9F4EE",
-                  marginVertical: 10,
-                }}
-              >
-                <Text
+            {data.map((_, index) => {
+              return (
+                <View
+                  key={index}
                   style={{
-                    color: tab === item.name ? "white" : "black",
-                    fontFamily: "WorkSans",
+                    backgroundColor:
+                      currentIndex === index ? "#3f3f47" : "#F9F4EE",
+                    height: 10,
+                    width: currentIndex === index ? 30 : 10,
+                    borderRadius: 5,
+                  }}
+                ></View>
+              );
+            })}
+          </View>
+        </View>
+        <View style={{ paddingHorizontal: 10 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              marginVertical: 35,
+            }}
+          >
+            <FlatList
+              showsHorizontalScrollIndicator={false}
+              horizontal
+              contentContainerStyle={{ gap: 25 }}
+              data={circleProductData}
+              renderItem={({ item }) => (
+                <CircleItems
+                  name={item.name}
+                  circleImage={item.circleImage}
+                  products={item.products}
+                />
+              )}
+              keyExtractor={(item) => item.id}
+            />
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              gap: 10,
+
+              alignItems: "center",
+            }}
+          ></View>
+          <View
+            style={{
+              gap: 4,
+              flexDirection: "row",
+              marginTop: 15,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 25,
+                fontFamily: "WorkSans",
+              }}
+            >
+              Top Collection
+            </Text>
+          </View>
+          <Text
+            style={{
+              fontFamily: "WorkSans",
+              color: "gray",
+            }}
+          >
+            Exclusives Collection
+          </Text>
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              alignItems: "center",
+              gap: 10,
+            }}
+          >
+            <VerticalBox />
+            <VerticalBox />
+            <VerticalBox />
+            <VerticalBox />
+          </View>
+          <View
+            style={{
+              gap: 4,
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginTop: 15,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 25,
+                fontFamily: "WorkSans",
+                textAlign: "center",
+              }}
+            >
+              Shop Our Exclusives
+            </Text>
+            <Text
+              style={{
+                fontFamily: "WorkSans",
+                textAlign: "center",
+                fontSize: 15,
+                color: "red",
+              }}
+            >
+              View All
+            </Text>
+          </View>
+          <Text
+            style={{
+              fontFamily: "WorkSans",
+              color: "gray",
+            }}
+          >
+            22 Exclusives Products
+          </Text>
+          <View>
+            <FlatList
+              data={categories}
+              showsHorizontalScrollIndicator={false}
+              horizontal
+              contentContainerStyle={{ gap: 10 }}
+              keyExtractor={(item) => item.id}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  onPress={() => setTab(item.name)}
+                  style={{
+                    paddingVertical: 10,
+                    paddingHorizontal: 30,
+                    borderRadius: 20,
+                    backgroundColor: tab === item.name ? "#3f3f47" : "#F9F4EE",
+                    marginVertical: 10,
                   }}
                 >
-                  {item.name}
-                </Text>
-              </TouchableOpacity>
+                  <Text
+                    style={{
+                      color: tab === item.name ? "white" : "black",
+                      fontFamily: "WorkSans",
+                    }}
+                  >
+                    {item.name}
+                  </Text>
+                </TouchableOpacity>
+              )}
+            />
+            {tab === "Earring" && (
+              <FlatList
+                data={products.earring}
+                showsHorizontalScrollIndicator={false}
+                horizontal
+                contentContainerStyle={{ gap: 10 }}
+                keyExtractor={(item) => item.id}
+                pagingEnabled={true}
+                renderItem={({ item }) => (
+                  <HotItem
+                    id={item.id}
+                    name={item.name}
+                    image={item.image}
+                    previousPrice={item.previousPrice}
+                    currentPrice={item.currentPrice}
+                    quantity={item.quantity}
+                  />
+                )}
+              />
             )}
-          />
-          {tab === "Earring" && (
-            <FlatList
-              data={products.earring}
-              showsHorizontalScrollIndicator={false}
-              horizontal
-              contentContainerStyle={{ gap: 10 }}
-              keyExtractor={(item) => item.id}
-              pagingEnabled={true}
-              renderItem={({ item }) => (
-                <HotItem
-                  id={item.id}
-                  name={item.name}
-                  image={item.image}
-                  previousPrice={item.previousPrice}
-                  currentPrice={item.currentPrice}
-                  quantity={item.quantity}
-                />
-              )}
-            />
-          )}
-          {tab === "Rings" && (
-            <FlatList
-              data={products.ring}
-              showsHorizontalScrollIndicator={false}
-              horizontal
-              contentContainerStyle={{ gap: 10 }}
-              keyExtractor={(item) => item.id}
-              pagingEnabled={true}
-              renderItem={({ item }) => (
-                <HotItem
-                  id={item.id}
-                  name={item.name}
-                  image={item.image}
-                  previousPrice={item.previousPrice}
-                  currentPrice={item.currentPrice}
-                  quantity={item.quantity}
-                />
-              )}
-            />
-          )}
-          {tab === "Necklaces" && (
-            <FlatList
-              data={products.necklace}
-              showsHorizontalScrollIndicator={false}
-              horizontal
-              contentContainerStyle={{ gap: 10 }}
-              keyExtractor={(item) => item.id}
-              pagingEnabled={true}
-              renderItem={({ item }) => (
-                <HotItem
-                  id={item.id}
-                  name={item.name}
-                  image={item.image}
-                  previousPrice={item.previousPrice}
-                  currentPrice={item.currentPrice}
-                  quantity={item.quantity}
-                />
-              )}
-            />
-          )}
-        </View>
-        <View
-          style={{
-            gap: 4,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginTop: 15,
-          }}
-        >
-          <Text
+            {tab === "Rings" && (
+              <FlatList
+                data={products.ring}
+                showsHorizontalScrollIndicator={false}
+                horizontal
+                contentContainerStyle={{ gap: 10 }}
+                keyExtractor={(item) => item.id}
+                pagingEnabled={true}
+                renderItem={({ item }) => (
+                  <HotItem
+                    id={item.id}
+                    name={item.name}
+                    image={item.image}
+                    previousPrice={item.previousPrice}
+                    currentPrice={item.currentPrice}
+                    quantity={item.quantity}
+                  />
+                )}
+              />
+            )}
+            {tab === "Necklaces" && (
+              <FlatList
+                data={products.necklace}
+                showsHorizontalScrollIndicator={false}
+                horizontal
+                contentContainerStyle={{ gap: 10 }}
+                keyExtractor={(item) => item.id}
+                pagingEnabled={true}
+                renderItem={({ item }) => (
+                  <HotItem
+                    id={item.id}
+                    name={item.name}
+                    image={item.image}
+                    previousPrice={item.previousPrice}
+                    currentPrice={item.currentPrice}
+                    quantity={item.quantity}
+                  />
+                )}
+              />
+            )}
+          </View>
+          <View
             style={{
-              fontSize: 25,
-              fontFamily: "WorkSans",
-              textAlign: "center",
+              gap: 4,
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginTop: 15,
             }}
           >
-            New Collection
-          </Text>
+            <Text
+              style={{
+                fontSize: 25,
+                fontFamily: "WorkSans",
+                textAlign: "center",
+              }}
+            >
+              New Collection
+            </Text>
+            <Text
+              style={{
+                fontFamily: "WorkSans",
+                textAlign: "center",
+                fontSize: 15,
+                color: "red",
+              }}
+            >
+              View All
+            </Text>
+          </View>
           <Text
             style={{
               fontFamily: "WorkSans",
               textAlign: "center",
-              fontSize: 15,
-              color:"red"
+              marginVertical: 10,
+              color: "gray",
             }}
           >
-            View All
+            22 New Products
           </Text>
-        </View>
-        <Text
-          style={{
-            fontFamily: "WorkSans",
-            textAlign: "center",
-            marginVertical: 10,
-            color: "gray",
-          }}
-        >
-          22 New Products
-        </Text>
-        <View
-          style={{
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          {productData.map((item, index) => (
-            <HotItem
-              key={index}
-              id={item.id}
-              name={item.name}
-              image={item.image}
-              previousPrice={item.previousPrice}
-              currentPrice={item.currentPrice}
-              quantity={item.quantity}
-            />
-          ))}
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            {productData.slice(0, 4).map((item, index) => (
+              <HotItem
+                key={index}
+                id={item.id}
+                name={item.name}
+                image={item.image}
+                previousPrice={item.previousPrice}
+                currentPrice={item.currentPrice}
+                quantity={item.quantity}
+              />
+            ))}
+          </View>
         </View>
       </ScrollView>
     </>

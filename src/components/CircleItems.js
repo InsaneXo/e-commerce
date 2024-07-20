@@ -15,13 +15,14 @@ const CircleItems = ({ name, circleImage, products }) => {
     >
       <View
         style={{
-          height: 70,
-          width: 70,
+          height: 150,
+          width: 150,
           backgroundColor: "#F9F4EE",
-          borderRadius: 50,
+          borderRadius: 90,
           overflow: "hidden",
-          borderBlockColor: "orange",
-          borderWidth: 1,
+          borderColor: "#F9F4EE",
+          borderWidth: 10,
+          marginBottom:5
         }}
       >
         <Image
@@ -29,7 +30,7 @@ const CircleItems = ({ name, circleImage, products }) => {
           style={{ height: "100%", width: "100%", objectFit: "cover" }}
         />
       </View>
-      <Text style={{ fontFamily: "WorkSans" }}>{name}</Text>
+      <Text style={{ fontFamily: "WorkSans", fontSize:17 }}>{name}</Text>
     </TouchableOpacity>
   );
 };
