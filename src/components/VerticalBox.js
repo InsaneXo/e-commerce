@@ -7,7 +7,7 @@ const VerticalBox = () => {
       <View
         style={{
           backgroundColor: "#F9F4EE",
-          height: 350,
+          height: 450,
           width: 190,
           overflow: "hidden",
           borderColor: "#F9F4EE",
@@ -16,7 +16,7 @@ const VerticalBox = () => {
         }}
       >
         <Image
-          source={require("../../assets/images/ear-ring.jpg")}
+          source={require("../../assets/images/ringBg.jpg")}
           style={{ height: "100%", width: "100%", borderRadius: 6 }}
         />
         <View style={{ position: "absolute", bottom: 10, left: 5 }}>

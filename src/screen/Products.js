@@ -126,6 +126,7 @@ const Products = (props) => {
             alignItems: "center",
             justifyContent: "space-between",
             flexWrap: "wrap",
+            gap:5
           }}
         >
           {products.map((item, index) => (

@@ -10,6 +10,7 @@ const CircleItems = ({ name, circleImage, products }) => {
   };
   return (
     <TouchableOpacity
+    activeOpacity={1}
       style={{ alignItems: "center" }}
       onPress={() => navigation.navigate("Products", payload)}
     >
@@ -18,10 +19,10 @@ const CircleItems = ({ name, circleImage, products }) => {
           height: 150,
           width: 150,
           backgroundColor: "#F9F4EE",
-          borderRadius: 90,
+          borderRadius: 50,
           overflow: "hidden",
           borderColor: "#F9F4EE",
-          borderWidth: 10,
+          borderWidth: 3,
           marginBottom:5
         }}
       >
