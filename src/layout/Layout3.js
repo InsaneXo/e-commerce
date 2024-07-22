@@ -1,8 +1,8 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import HotItem from "../components/HotItem";
 
-const Layout3 = () => {
+const Layout3 = ({ data }) => {
   return (
     <View>
       <View
@@ -44,10 +44,19 @@ const Layout3 = () => {
         </Text>
       </View>
       <View style={{ flexDirection: "row", gap: 10 }}>
-        <HotItem name={"Hello"} previousPrice={1000} currentPrice={1000} />
-        <HotItem name={"Hello"} previousPrice={1000} currentPrice={1000} />
-        <HotItem name={"Hello"} previousPrice={1000} currentPrice={1000} />
-        <HotItem name={"Hello"} previousPrice={1000} currentPrice={1000} />
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {data.map((item, index) => (
+            <HotItem
+              key={index}
+              id={item.id}
+              name={item.name}
+              previousPrice={item.previousPrice}
+              currentPrice={item.currentPrice}
+              image={item.image}
+              quantity={item.quantity}
+            />
+          ))}
+        </ScrollView>
       </View>
     </View>
   );

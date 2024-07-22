@@ -34,25 +34,25 @@ const Card = ({ image, name,  productData }) => {
           marginVertical: "auto",
           gap: 5,
           position: "absolute",
-          bottom:"45%"
+          bottom:50
         }}
       >
         <Text
-          style={{ fontFamily: "WorkSans", fontSize: 29, color: "#777777" }}
+          style={{ fontFamily: "WorkSans", fontSize: 29, color: "white" }}
         >
           Mood Of the Earth
         </Text>
         <Text
-          style={{ fontFamily: "WorkSans", color: "#222222", fontSize: 22 }}
+          style={{ fontFamily: "WorkSans", color: "white", fontSize: 22, }}
         >
           Trending Product
         </Text>
-        <Text style={{ fontFamily: "WorkSans" }}>
+        <Text style={{ fontFamily: "WorkSans", color: "white" }}>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem{" "}
         </Text>
-        <TouchableOpacity style={{padding:20, borderColor:"black", borderWidth:1, marginTop:20}} onPress={() => navigation.navigate("Products", payload)}>
-          <Text style={{ fontFamily: "WorkSans", textAlign:"center" }}>Shop Now</Text>
+        <TouchableOpacity style={{padding:20, borderColor:"white", borderWidth:1, marginTop:20}} onPress={() => navigation.navigate("Products", payload)}>
+          <Text style={{ fontFamily: "WorkSans", textAlign:"center", color:"white" }}>Shop Now</Text>
         </TouchableOpacity>
       </View>
     </View>

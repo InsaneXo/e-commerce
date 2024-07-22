@@ -1,22 +1,27 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
-const VerticalBox = () => {
+const VerticalBox = ({ title, subtitle, image, products }) => {
+  const navigation = useNavigation();
+  const payload={
+    name: title,
+    products: products
+  }
   return (
     <>
-      <View
+      <TouchableOpacity
         style={{
           backgroundColor: "#F9F4EE",
           height: 450,
           width: 190,
           overflow: "hidden",
-          borderColor: "#F9F4EE",
-          borderWidth: 6,
           borderRadius: 6,
         }}
+        onPress={()=> navigation.navigate("Products", payload)}
       >
         <Image
-          source={require("../../assets/images/ringBg.jpg")}
+          source={image}
           style={{ height: "100%", width: "100%", borderRadius: 6 }}
         />
         <View style={{ position: "absolute", bottom: 10, left: 5 }}>
@@ -27,13 +32,13 @@ const VerticalBox = () => {
               color: "white",
             }}
           >
-            Gold Earring
+            {title}
           </Text>
-          <Text style={{ fontFamily: "WorkSans" }}>
-            Exclusives Gold Collection
+          <Text style={{ fontFamily: "WorkSans", color: "white" }}>
+            {subtitle}
           </Text>
         </View>
-      </View>
+      </TouchableOpacity>
     </>
   );
 };

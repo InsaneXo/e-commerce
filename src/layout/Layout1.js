@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import VerticalBox from "../components/VerticalBox";
 
-const Layout1 = () => {
+const Layout1 = ({ data, layoutTitle, layoutSubTitle  }) => {
   return (
     <>
       <View
@@ -16,7 +16,7 @@ const Layout1 = () => {
             fontFamily: "WorkSans",
           }}
         >
-          Top Collection
+          {layoutTitle}
         </Text>
         <Text
           style={{
@@ -25,7 +25,7 @@ const Layout1 = () => {
             marginBottom: 10,
           }}
         >
-          Exclusives Collection
+          {layoutSubTitle}
         </Text>
       </View>
       <View
@@ -37,10 +37,15 @@ const Layout1 = () => {
           gap: 10,
         }}
       >
-        <VerticalBox />
-        <VerticalBox />
-        <VerticalBox />
-        <VerticalBox />
+        {data.map((item, index) => (
+          <VerticalBox
+            key={index}
+            title={item.title}
+            subtitle={item.subTitle}
+            image={item.image}
+            products={item.products}
+          />
+        ))}
       </View>
     </>
   );

@@ -19,7 +19,6 @@ import HotItem from "../components/HotItem";
 import { useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import CircleItems from "../components/CircleItems";
-import VerticalBox from "../components/VerticalBox";
 import Layout1 from "../layout/Layout1";
 import Layout2 from "../layout/Layout2";
 import Layout3 from "../layout/Layout3";
@@ -392,148 +391,32 @@ const circleProductData = [
   },
 ];
 
-const products = {
-  earring: [
-    {
-      id: "1",
-      name: "Elegant jhumka White & Gray",
-      previousPrice: 1000,
-      currentPrice: 799,
-      image: require("../../assets/images/8.jpg"),
-      quantity: 1,
-    },
-    {
-      id: "2",
-      name: "Elegant jhumka White & Gray",
-      previousPrice: 1000,
-      currentPrice: 799,
-      image: require("../../assets/images/8.jpg"),
-      quantity: 1,
-    },
-    {
-      id: "3",
-      name: "Elegant jhumka White & Gray",
-      previousPrice: 1000,
-      currentPrice: 799,
-      image: require("../../assets/images/8.jpg"),
-      quantity: 1,
-    },
-    {
-      id: "4",
-      name: "Elegant jhumka White & Gray",
-      previousPrice: 1000,
-      currentPrice: 799,
-      image: require("../../assets/images/8.jpg"),
-      quantity: 1,
-    },
-  ],
-  ring: [
-    {
-      id: "1",
-      name: "Diamond Ring",
-      previousPrice: 1000,
-      currentPrice: 799,
-      image: require("../../assets/images/item001.jpg"),
-      quantity: 1,
-    },
-    {
-      id: "2",
-      name: "Diamond Ring",
-      previousPrice: 1000,
-      currentPrice: 799,
-      image: require("../../assets/images/item001.jpg"),
-      quantity: 1,
-    },
-    {
-      id: "3",
-      name: "Diamond Ring",
-      previousPrice: 1000,
-      currentPrice: 799,
-      image: require("../../assets/images/item001.jpg"),
-      quantity: 1,
-    },
-    {
-      id: "4",
-      name: "Diamond Ring",
-      previousPrice: 1000,
-      currentPrice: 799,
-      image: require("../../assets/images/item001.jpg"),
-      quantity: 1,
-    },
-  ],
-  necklace: [
-    {
-      id: "1",
-      name: "Emrald CZ Necklace Set with Big Pendant ",
-      previousPrice: 3000,
-      currentPrice: 2499,
-      image: require("../../assets/images/16.jpg"),
-      quantity: 1,
-    },
-    {
-      id: "2",
-      name: "Emrald CZ Necklace Set with Big Pendant ",
-      previousPrice: 3000,
-      currentPrice: 2499,
-      image: require("../../assets/images/16.jpg"),
-      quantity: 1,
-    },
-    {
-      id: "3",
-      name: "Emrald CZ Necklace Set with Big Pendant ",
-      previousPrice: 3000,
-      currentPrice: 2499,
-      image: require("../../assets/images/16.jpg"),
-      quantity: 1,
-    },
-    {
-      id: "4",
-      name: "Emrald CZ Necklace Set with Big Pendant ",
-      previousPrice: 3000,
-      currentPrice: 2499,
-      image: require("../../assets/images/16.jpg"),
-      quantity: 1,
-    },
-  ],
-};
-
-const categories = [
-  {
-    id: "1",
-    name: "Earring",
-  },
-  {
-    id: "2",
-    name: "Rings",
-  },
-  {
-    id: "3",
-    name: "Necklaces",
-  },
-];
-
 const homePageData = {
   carouselSliderItems: [
     {
-      title: "Mood of the Earth",
+      id: "1",
+      title: "All Jewellery",
       subTitle: "Trending Product",
       para: "Lorem Ipsum is simply dummy text of the printing and typesetting",
       image: require("../../assets/images/slider1.jpg"),
     },
     {
-      title: "Mood of the Earth",
-      subTitle: "Trending Product",
+      id: "2",
+      title: "All Jewellery",
+      subTitle: "All Jewellery",
       para: "Lorem Ipsum is simply dummy text of the printing and typesetting",
       image: require("../../assets/images/slider2.jpg"),
     },
     {
-      title: "Mood of the Earth",
+      id: "3",
+      title: "All Jewellery",
       subTitle: "Trending Product",
       para: "Lorem Ipsum is simply dummy text of the printing and typesetting",
       image: require("../../assets/images/slider3.jpg"),
     },
     {
-      title: "Mood of the Earth",
+      id: "4",
+      title: "All Jewellery",
       subTitle: "Trending Product",
       para: "Lorem Ipsum is simply dummy text of the printing and typesetting",
       image: require("../../assets/images/slider4.jpg"),
@@ -541,12 +424,12 @@ const homePageData = {
   ],
   categoriesItems: [
     {
-      id: Date.now(),
+      id: "1",
       title: "Necklaces Set",
       image: require("../../assets/images/NecklaceSet.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
@@ -554,70 +437,70 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Necklace Set 2.jpg",
+          image: require("../../assets/images/Necklace Set 2.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Necklace Set 3.jpg",
+          image: require("../../assets/images/Necklace Set 3.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Necklace Set 4.jpg",
+          image: require("../../assets/images/Necklace Set 4.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Necklace Set 5.jpg",
+          image: require("../../assets/images/Necklace Set 5.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Necklace Set 6.jpg",
+          image: require("../../assets/images/Necklace Set 6.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Necklace Set 7.jpg",
+          image: require("../../assets/images/Necklace Set 7.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "8",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Necklace Set 8.jpg",
+          image: require("../../assets/images/Necklace Set 8.jpg"),
           quantity: 1,
         },
       ],
     },
     {
-      id: Date.now(),
+      id: "2",
       title: "Rings",
       image: require("../../assets/images/ring.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
@@ -625,70 +508,70 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "8",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
       ],
     },
     {
-      id: Date.now(),
+      id: "3",
       title: "Earring",
       image: require("../../assets/images/earring.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
@@ -696,70 +579,70 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
+          image: require("../../assets/images/earring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
+          image: require("../../assets/images/earring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
+          image: require("../../assets/images/earring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
+          image: require("../../assets/images/earring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
+          image: require("../../assets/images/earring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
+          image: require("../../assets/images/earring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "8",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
+          image: require("../../assets/images/earring.jpg"),
           quantity: 1,
         },
       ],
     },
     {
-      id: Date.now(),
+      id: "4",
       title: "Chain Pendant",
       image: require("../../assets/images/chainPendant.jpeg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "SPARKLE forever Iconic/A Class Act Chain Pendant",
           previousPrice: 1000,
           currentPrice: 799,
@@ -767,70 +650,70 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "SPARKLE forever Iconic/A Class Act Chain Pendant",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/chainPendant.jpeg",
+          image: require("../../assets/images/chainPendant.jpeg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "SPARKLE forever Iconic/A Class Act Chain Pendant",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/chainPendant.jpeg",
+          image: require("../../assets/images/chainPendant.jpeg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "SPARKLE forever Iconic/A Class Act Chain Pendant",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/chainPendant.jpeg",
+          image: require("../../assets/images/chainPendant.jpeg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "SPARKLE forever Iconic/A Class Act Chain Pendant",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/chainPendant.jpeg",
+          image: require("../../assets/images/chainPendant.jpeg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "SPARKLE forever Iconic/A Class Act Chain Pendant",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/chainPendant.jpeg",
+          image: require("../../assets/images/chainPendant.jpeg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "SPARKLE forever Iconic/A Class Act Chain Pendant",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/chainPendant.jpeg",
+          image: require("../../assets/images/chainPendant.jpeg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "8",
           name: "SPARKLE forever Iconic/A Class Act Chain Pendant",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/chainPendant.jpeg",
+          image: require("../../assets/images/chainPendant.jpeg"),
           quantity: 1,
         },
       ],
     },
     {
-      id: Date.now(),
+      id: "5",
       title: "Bracelets",
       image: require("../../assets/images/Bracelets.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "SPARKLE forever Iconic/A Class Act Bracelets",
           previousPrice: 1000,
           currentPrice: 799,
@@ -838,70 +721,70 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "SPARKLE forever Iconic/A Class Act Bracelets",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Bracelets.jpg",
+          image: require("../../assets/images/Bracelets.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "SPARKLE forever Iconic/A Class Act Bracelets",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Bracelets.jpg",
+          image: require("../../assets/images/Bracelets.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "SPARKLE forever Iconic/A Class Act Bracelets",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Bracelets.jpg",
+          image: require("../../assets/images/Bracelets.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "SPARKLE forever Iconic/A Class Act Bracelets",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Bracelets.jpg",
+          image: require("../../assets/images/Bracelets.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "SPARKLE forever Iconic/A Class Act Bracelets",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Bracelets.jpg",
+          image: require("../../assets/images/Bracelets.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "SPARKLE forever Iconic/A Class Act Bracelets",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Bracelets.jpg",
+          image: require("../../assets/images/Bracelets.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "8",
           name: "SPARKLE forever Iconic/A Class Act Bracelets",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Bracelets.jpg",
+          image: require("../../assets/images/Bracelets.jpg"),
           quantity: 1,
         },
       ],
     },
     {
-      id: Date.now(),
+      id: "6",
       title: "Bangles",
       image: require("../../assets/images/Bangles.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "SPARKLE forever Iconic/A Class Act Bangles",
           previousPrice: 1000,
           currentPrice: 799,
@@ -909,7 +792,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "SPARKLE forever Iconic/A Class Act Bangles",
           previousPrice: 1000,
           currentPrice: 799,
@@ -917,7 +800,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "SPARKLE forever Iconic/A Class Act Bangles",
           previousPrice: 1000,
           currentPrice: 799,
@@ -925,7 +808,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "SPARKLE forever Iconic/A Class Act Bangles",
           previousPrice: 1000,
           currentPrice: 799,
@@ -933,7 +816,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "SPARKLE forever Iconic/A Class Act Bangles",
           previousPrice: 1000,
           currentPrice: 799,
@@ -941,7 +824,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "SPARKLE forever Iconic/A Class Act Bangles",
           previousPrice: 1000,
           currentPrice: 799,
@@ -949,7 +832,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "SPARKLE forever Iconic/A Class Act Bangles",
           previousPrice: 1000,
           currentPrice: 799,
@@ -957,7 +840,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "8",
           name: "SPARKLE forever Iconic/A Class Act Bangles",
           previousPrice: 1000,
           currentPrice: 799,
@@ -967,12 +850,12 @@ const homePageData = {
       ],
     },
     {
-      id: Date.now(),
+      id: "7",
       title: "Tika & Mathapatti",
       image: require("../../assets/images/Tika & Mathapatti.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -980,7 +863,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -988,7 +871,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -996,7 +879,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1004,7 +887,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1012,7 +895,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1020,7 +903,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1028,7 +911,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "8",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1038,12 +921,12 @@ const homePageData = {
       ],
     },
     {
-      id: Date.now(),
+      id: "8",
       title: "Belts",
       image: require("../../assets/images/Belts.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "SPARKLE forever Iconic/A Class Act Belts",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1051,7 +934,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "SPARKLE forever Iconic/A Class Act Belts",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1059,7 +942,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "SPARKLE forever Iconic/A Class Act Belts",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1067,7 +950,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "SPARKLE forever Iconic/A Class Act Belts",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1075,7 +958,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "SPARKLE forever Iconic/A Class Act Belts",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1083,7 +966,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "SPARKLE forever Iconic/A Class Act Belts",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1091,7 +974,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "SPARKLE forever Iconic/A Class Act Belts",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1099,7 +982,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "8",
           name: "SPARKLE forever Iconic/A Class Act Belts",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1112,11 +995,11 @@ const homePageData = {
   topCollection: [
     {
       title: "Rings",
-      subTitle: "Exclusives Rings Collection",
+      subTitle: "Exclusives Collection",
       image: require("../../assets/images/ringBg.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1124,59 +1007,59 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/ring.jpg",
+          image: require("../../assets/images/ring.jpg"),
           quantity: 1,
         },
       ],
@@ -1187,7 +1070,15 @@ const homePageData = {
       image: require("../../assets/images/earringBg.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
+          name: "SPARKLE forever Iconic/A Class Act Earring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/earring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "2",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1199,55 +1090,47 @@ const homePageData = {
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
+          image: require("../../assets/images/earring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
+          image: require("../../assets/images/earring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
+          image: require("../../assets/images/earring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
+          image: require("../../assets/images/earring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
+          image: require("../../assets/images/earring.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "SPARKLE forever Iconic/A Class Act Earring",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
-          quantity: 1,
-        },
-        {
-          id: Date.now(),
-          name: "SPARKLE forever Iconic/A Class Act Earring",
-          previousPrice: 1000,
-          currentPrice: 799,
-          image: "../../assets/images/earring.jpg",
+          image: require("../../assets/images/earring.jpg"),
           quantity: 1,
         },
       ],
@@ -1258,7 +1141,7 @@ const homePageData = {
       image: require("../../assets/images/NecklaceSetBg.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1266,59 +1149,51 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Necklace Set 2.jpg",
+          image: require("../../assets/images/Necklace Set 2.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Necklace Set 3.jpg",
+          image: require("../../assets/images/Necklace Set 3.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Necklace Set 4.jpg",
+          image: require("../../assets/images/Necklace Set 4.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Necklace Set 5.jpg",
+          image: require("../../assets/images/Necklace Set 5.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Necklace Set 6.jpg",
+          image: require("../../assets/images/Necklace Set 6.jpg"),
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "ZENEME Rhodium Plated Contemporary",
           previousPrice: 1000,
           currentPrice: 799,
-          image: "../../assets/images/Necklace Set 7.jpg",
-          quantity: 1,
-        },
-        {
-          id: Date.now(),
-          name: "ZENEME Rhodium Plated Contemporary",
-          previousPrice: 1000,
-          currentPrice: 799,
-          image: "../../assets/images/Necklace Set 8.jpg",
+          image: require("../../assets/images/Necklace Set 7.jpg"),
           quantity: 1,
         },
       ],
@@ -1398,11 +1273,11 @@ const homePageData = {
   shopByOccasion: [
     {
       name: "Wedding Collection",
-      subTitle: "Exclusives Wedding Collection",
+      subTitle: "Exclusives Collection",
       image: require("../../assets/images/weddingCollection.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "Elegant jhumka White & Gray",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1410,7 +1285,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "Emrald CZ Necklace Set with Big Pendant ",
           previousPrice: 3000,
           currentPrice: 2499,
@@ -1418,7 +1293,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "White Gold Chain",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1426,7 +1301,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1434,7 +1309,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "Elegant jhumka White & Gray",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1442,7 +1317,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "Emrald CZ Necklace Set with Big Pendant ",
           previousPrice: 3000,
           currentPrice: 2499,
@@ -1450,7 +1325,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "White Gold Chain",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1458,7 +1333,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "8",
           name: "Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1469,11 +1344,11 @@ const homePageData = {
     },
     {
       name: "Reception Collection",
-      subTitle: "Exclusives Reception Collection",
+      subTitle: "Exclusives Collection",
       image: require("../../assets/images/receptionBg.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "Elegant jhumka White & Gray",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1481,7 +1356,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "Emrald CZ Necklace Set with Big Pendant ",
           previousPrice: 3000,
           currentPrice: 2499,
@@ -1489,7 +1364,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "White Gold Chain",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1497,7 +1372,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1505,7 +1380,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "Elegant jhumka White & Gray",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1513,7 +1388,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "Emrald CZ Necklace Set with Big Pendant ",
           previousPrice: 3000,
           currentPrice: 2499,
@@ -1521,7 +1396,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "White Gold Chain",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1529,7 +1404,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "8",
           name: "Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1540,11 +1415,11 @@ const homePageData = {
     },
     {
       name: "Engagement Collection",
-      subTitle: "Exclusives Engagement Collection",
+      subTitle: "Exclusives Collection",
       image: require("../../assets/images/engagementBg.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "Elegant jhumka White & Gray",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1552,7 +1427,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "Emrald CZ Necklace Set with Big Pendant ",
           previousPrice: 3000,
           currentPrice: 2499,
@@ -1560,7 +1435,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "White Gold Chain",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1568,7 +1443,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1576,7 +1451,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "Elegant jhumka White & Gray",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1584,7 +1459,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "Emrald CZ Necklace Set with Big Pendant ",
           previousPrice: 3000,
           currentPrice: 2499,
@@ -1592,7 +1467,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "White Gold Chain",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1600,7 +1475,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "8",
           name: "Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1611,11 +1486,11 @@ const homePageData = {
     },
     {
       name: "Party Collection",
-      subTitle: "Exclusives Party Collection",
+      subTitle: "Exclusives Collection",
       image: require("../../assets/images/partyBG.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "Elegant jhumka White & Gray",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1623,7 +1498,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "Emrald CZ Necklace Set with Big Pendant ",
           previousPrice: 3000,
           currentPrice: 2499,
@@ -1631,7 +1506,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "White Gold Chain",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1639,7 +1514,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1647,7 +1522,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "Elegant jhumka White & Gray",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1655,7 +1530,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "Emrald CZ Necklace Set with Big Pendant ",
           previousPrice: 3000,
           currentPrice: 2499,
@@ -1663,7 +1538,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "White Gold Chain",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1671,7 +1546,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "8",
           name: "Diamond Ring",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1681,12 +1556,77 @@ const homePageData = {
       ],
     },
   ],
+  featuresProduct: [
+    {
+      id: "1",
+      name: "Elegant jhumka White & Gray",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/8.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "2",
+      name: "Emrald CZ Necklace Set with Big Pendant ",
+      previousPrice: 3000,
+      currentPrice: 2499,
+      image: require("../../assets/images/16.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "3",
+      name: "White Gold Chain",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/white-gold-chain.jpeg"),
+      quantity: 1,
+    },
+    {
+      id: "4",
+      name: "Diamond Ring",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/item001.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "5",
+      name: "Elegant jhumka White & Gray",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/8.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "6",
+      name: "Emrald CZ Necklace Set with Big Pendant ",
+      previousPrice: 3000,
+      currentPrice: 2499,
+      image: require("../../assets/images/16.jpg"),
+      quantity: 1,
+    },
+    {
+      id: "7",
+      name: "White Gold Chain",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/white-gold-chain.jpeg"),
+      quantity: 1,
+    },
+    {
+      id: "8",
+      name: "Diamond Ring",
+      previousPrice: 1000,
+      currentPrice: 799,
+      image: require("../../assets/images/item001.jpg"),
+      quantity: 1,
+    },
+  ],
 };
 
 const Home = () => {
   const wishList = useSelector((store) => store.wishlist);
   const navigation = useNavigation();
-  const [tab, setTab] = useState("Earring");
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleScroll = (event) => {
@@ -1744,12 +1684,12 @@ const Home = () => {
           <FlatList
             showsHorizontalScrollIndicator={false}
             horizontal
-            data={data}
+            data={homePageData.carouselSliderItems}
             pagingEnabled
             snapToAlignment="start"
             renderItem={({ item }) => (
               <Card
-                name={item.name}
+                name={item.title}
                 price={item.price}
                 image={item.image}
                 productData={productData}
@@ -1798,214 +1738,24 @@ const Home = () => {
               showsHorizontalScrollIndicator={false}
               horizontal
               contentContainerStyle={{ gap: 25 }}
-              data={circleProductData}
+              data={homePageData.categoriesItems}
               renderItem={({ item }) => (
                 <CircleItems
-                  name={item.name}
-                  circleImage={item.circleImage}
+                  name={item.title}
+                  circleImage={item.image}
                   products={item.products}
                 />
               )}
               keyExtractor={(item) => item.id}
             />
           </View>
-          <View
-            style={{
-              flexDirection: "row",
-              gap: 10,
-
-              alignItems: "center",
-            }}
-          ></View>
-          <Layout1 />
-          <Layout2 />
-          <Layout3/>
-          <View
-            style={{
-              gap: 4,
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginTop: 15,
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 25,
-                fontFamily: "WorkSans",
-                textAlign: "center",
-              }}
-            >
-              Shop Our Exclusives
-            </Text>
-            <Text
-              style={{
-                fontFamily: "WorkSans",
-                textAlign: "center",
-                fontSize: 15,
-                color: "red",
-              }}
-            >
-              View All
-            </Text>
-          </View>
-          <Text
-            style={{
-              fontFamily: "WorkSans",
-              color: "gray",
-            }}
-          >
-            22 Exclusives Products
-          </Text>
-          <View>
-            <FlatList
-              data={categories}
-              showsHorizontalScrollIndicator={false}
-              horizontal
-              contentContainerStyle={{ gap: 10 }}
-              keyExtractor={(item) => item.id}
-              renderItem={({ item }) => (
-                <TouchableOpacity
-                  onPress={() => setTab(item.name)}
-                  style={{
-                    paddingVertical: 10,
-                    paddingHorizontal: 30,
-                    borderRadius: 20,
-                    backgroundColor: tab === item.name ? "#3f3f47" : "#F9F4EE",
-                    marginVertical: 10,
-                  }}
-                >
-                  <Text
-                    style={{
-                      color: tab === item.name ? "white" : "black",
-                      fontFamily: "WorkSans",
-                    }}
-                  >
-                    {item.name}
-                  </Text>
-                </TouchableOpacity>
-              )}
-            />
-            {tab === "Earring" && (
-              <FlatList
-                data={products.earring}
-                showsHorizontalScrollIndicator={false}
-                horizontal
-                contentContainerStyle={{ gap: 10 }}
-                keyExtractor={(item) => item.id}
-                pagingEnabled={true}
-                renderItem={({ item }) => (
-                  <HotItem
-                    id={item.id}
-                    name={item.name}
-                    image={item.image}
-                    previousPrice={item.previousPrice}
-                    currentPrice={item.currentPrice}
-                    quantity={item.quantity}
-                  />
-                )}
-              />
-            )}
-            {tab === "Rings" && (
-              <FlatList
-                data={products.ring}
-                showsHorizontalScrollIndicator={false}
-                horizontal
-                contentContainerStyle={{ gap: 10 }}
-                keyExtractor={(item) => item.id}
-                pagingEnabled={true}
-                renderItem={({ item }) => (
-                  <HotItem
-                    id={item.id}
-                    name={item.name}
-                    image={item.image}
-                    previousPrice={item.previousPrice}
-                    currentPrice={item.currentPrice}
-                    quantity={item.quantity}
-                  />
-                )}
-              />
-            )}
-            {tab === "Necklaces" && (
-              <FlatList
-                data={products.necklace}
-                showsHorizontalScrollIndicator={false}
-                horizontal
-                contentContainerStyle={{ gap: 10 }}
-                keyExtractor={(item) => item.id}
-                pagingEnabled={true}
-                renderItem={({ item }) => (
-                  <HotItem
-                    id={item.id}
-                    name={item.name}
-                    image={item.image}
-                    previousPrice={item.previousPrice}
-                    currentPrice={item.currentPrice}
-                    quantity={item.quantity}
-                  />
-                )}
-              />
-            )}
-          </View>
-          <View
-            style={{
-              gap: 4,
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginTop: 15,
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 25,
-                fontFamily: "WorkSans",
-                textAlign: "center",
-              }}
-            >
-              New Collection
-            </Text>
-            <Text
-              style={{
-                fontFamily: "WorkSans",
-                textAlign: "center",
-                fontSize: 15,
-                color: "red",
-              }}
-            >
-              View All
-            </Text>
-          </View>
-          <Text
-            style={{
-              fontFamily: "WorkSans",
-              textAlign: "center",
-              marginVertical: 10,
-              color: "gray",
-            }}
-          >
-            22 New Products
-          </Text>
-          <View
-            style={{
-              flexDirection: "row",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            {productData.slice(0, 4).map((item, index) => (
-              <HotItem
-                key={index}
-                id={item.id}
-                name={item.name}
-                image={item.image}
-                previousPrice={item.previousPrice}
-                currentPrice={item.currentPrice}
-                quantity={item.quantity}
-              />
-            ))}
-          </View>
+          <Layout1
+            data={homePageData.topCollection}
+            layoutTitle={"Top Collection"}
+            layoutSubTitle={"Exclusive Collection"}
+          />
+          <Layout2 data={homePageData.shopByOccasion} />
+          <Layout3 data={homePageData.featuresProduct} />
         </View>
       </ScrollView>
     </>

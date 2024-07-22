@@ -9,26 +9,285 @@ import {
 } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
-
-import CatagoryItem from "../components/CatagoryItem";
+import Layout1 from "../layout/Layout1";
 
 const Catagory = () => {
-  const data = [
+  const categoriesItems = [
     {
-      name: "Ear Rings",
-      image: require("../../assets/images/ear-ring.jpg"),
+      title: "Rings",
+      subTitle: "Exclusives Collection",
+      image: require("../../assets/images/ringBg.jpg"),
+      products: [
+        {
+          id: "1",
+          name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/ring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "2",
+          name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/ring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "3",
+          name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/ring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "4",
+          name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/ring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "5",
+          name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/ring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "5",
+          name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/ring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "6",
+          name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/ring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "7",
+          name: "SPARKLE forever Iconic/A Class Act Diamond Ring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/ring.jpg"),
+          quantity: 1,
+        },
+      ],
     },
     {
-      name: "Jewels",
-      image: require("../../assets/images/gold-chain.jpg"),
+      title: "Earring",
+      subTitle: "Exclusives Collection",
+      image: require("../../assets/images/earringBg.jpg"),
+      products: [
+        {
+          id: "1",
+          name: "SPARKLE forever Iconic/A Class Act Earring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/earring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "2",
+          name: "SPARKLE forever Iconic/A Class Act Earring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/earring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: Date.now(),
+          name: "SPARKLE forever Iconic/A Class Act Earring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/earring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "3",
+          name: "SPARKLE forever Iconic/A Class Act Earring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/earring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "4",
+          name: "SPARKLE forever Iconic/A Class Act Earring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/earring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "5",
+          name: "SPARKLE forever Iconic/A Class Act Earring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/earring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "6",
+          name: "SPARKLE forever Iconic/A Class Act Earring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/earring.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "7",
+          name: "SPARKLE forever Iconic/A Class Act Earring",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/earring.jpg"),
+          quantity: 1,
+        },
+      ],
     },
     {
-      name: "Nacklace",
-      image: require("../../assets/images/Necklace.jpg"),
+      title: "Necklace Set",
+      subTitle: "Exclusives Collection",
+      image: require("../../assets/images/NecklaceSetBg.jpg"),
+      products: [
+        {
+          id: "1",
+          name: "ZENEME Rhodium Plated Contemporary",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Necklace Set 1.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "2",
+          name: "ZENEME Rhodium Plated Contemporary",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Necklace Set 2.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "3",
+          name: "ZENEME Rhodium Plated Contemporary",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Necklace Set 3.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "4",
+          name: "ZENEME Rhodium Plated Contemporary",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Necklace Set 4.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "5",
+          name: "ZENEME Rhodium Plated Contemporary",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Necklace Set 5.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "6",
+          name: "ZENEME Rhodium Plated Contemporary",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Necklace Set 6.jpg"),
+          quantity: 1,
+        },
+        {
+          id: "7",
+          name: "ZENEME Rhodium Plated Contemporary",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Necklace Set 7.jpg"),
+          quantity: 1,
+        },
+      ],
     },
     {
-      name: "Rings",
-      image: require("../../assets/images/ring.jpg"),
+      title: "Tika & Mathapatti",
+      subTitle: "Exclusives Collection",
+      image: require("../../assets/images/Tika & MathapattiBG.jpg"),
+      products: [
+        {
+          id: Date.now(),
+          name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Tika & Mathapatti.jpg"),
+          quantity: 1,
+        },
+        {
+          id: Date.now(),
+          name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Tika & Mathapatti.jpg"),
+          quantity: 1,
+        },
+        {
+          id: Date.now(),
+          name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Tika & Mathapatti.jpg"),
+          quantity: 1,
+        },
+        {
+          id: Date.now(),
+          name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Tika & Mathapatti.jpg"),
+          quantity: 1,
+        },
+        {
+          id: Date.now(),
+          name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Tika & Mathapatti.jpg"),
+          quantity: 1,
+        },
+        {
+          id: Date.now(),
+          name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Tika & Mathapatti.jpg"),
+          quantity: 1,
+        },
+        {
+          id: Date.now(),
+          name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Tika & Mathapatti.jpg"),
+          quantity: 1,
+        },
+        {
+          id: Date.now(),
+          name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
+          previousPrice: 1000,
+          currentPrice: 799,
+          image: require("../../assets/images/Tika & Mathapatti.jpg"),
+          quantity: 1,
+        },
+      ],
     },
   ];
   return (
@@ -62,7 +321,7 @@ const Catagory = () => {
               padding: 14,
               paddingRight: 35,
               borderRadius: 10,
-              fontFamily:"WorkSans"
+              fontFamily: "WorkSans",
             }}
           />
           <View style={{ position: "absolute", right: 10 }}>
@@ -70,9 +329,11 @@ const Catagory = () => {
           </View>
         </View>
       </View>
-      {data.map((item, index) => (
-        <CatagoryItem key={index} name={item.name} image={item.image} />
-      ))}
+      <Layout1
+        data={categoriesItems}
+        layoutTitle={"Shop By Categories"}
+        layoutSubTitle={"Exclusives Categories"}
+      />
     </ScrollView>
   );
 };

@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import RectangleCard from "../components/RectangleCard";
 
-const Layout2 = () => {
+const Layout2 = ({ data }) => {
   return (
     <>
       <View
@@ -29,8 +29,15 @@ const Layout2 = () => {
           Exclusives Collection
         </Text>
       </View>
-      <RectangleCard />
-      <RectangleCard />
+      {data.map((item, index) => (
+        <RectangleCard
+          key={index}
+          name={item.name}
+          image={item.image}
+          subTitle={item.subTitle}
+          products={item.products}
+        />
+      ))}
     </>
   );
 };

@@ -65,7 +65,7 @@ const HotItem = ({
   };
 
   return (
-    <View style={{width: 188, borderRadius: 6, padding:6, backgroundColor: "#F9F4EE" }}>
+    <View style={{width: 188, borderRadius: 6, padding:6,  }}>
       <TouchableOpacity
         style={{
           height: 200,
