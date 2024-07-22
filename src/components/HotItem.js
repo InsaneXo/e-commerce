@@ -65,7 +65,7 @@ const HotItem = ({
   };
 
   return (
-    <View style={{width: 188, borderRadius: 6, padding:6,  }}>
+    <View style={{ width: 188, borderRadius: 6, padding: 6 }}>
       <TouchableOpacity
         style={{
           height: 200,
@@ -82,6 +82,7 @@ const HotItem = ({
               height: 30,
               width: 30,
               position: "absolute",
+              backgroundColor: "#F9F4EE",
               right: 8,
               top: 6,
               borderRadius: 50,
@@ -103,6 +104,7 @@ const HotItem = ({
               borderRadius: 50,
               justifyContent: "center",
               alignItems: "center",
+              backgroundColor: "#F9F4EE",
             }}
             onPress={addToWishlistHandler}
           >

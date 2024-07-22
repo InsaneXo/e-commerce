@@ -15,10 +15,9 @@ import HotItem from "../components/HotItem";
 
 const Products = (props) => {
   const wishList = useSelector((store) => store.wishlist);
-  const cart = useSelector((store)=> store.cart)
+  const cart = useSelector((store) => store.cart);
   const navigation = useNavigation();
   const { name, products } = props.route.params;
-
   return (
     <>
       <View
@@ -97,7 +96,6 @@ const Products = (props) => {
           </TouchableOpacity>
         </View>
       </View>
-      
 
       <ScrollView
         style={{ flex: 1, backgroundColor: "#FFFFFF", paddingHorizontal: 10 }}
@@ -126,7 +124,7 @@ const Products = (props) => {
             alignItems: "center",
             justifyContent: "space-between",
             flexWrap: "wrap",
-            gap:5
+            gap: 5,
           }}
         >
           {products.map((item, index) => (

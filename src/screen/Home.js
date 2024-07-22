@@ -113,284 +113,6 @@ const productData = [
   },
 ];
 
-const circleProductData = [
-  {
-    id: "1",
-    name: "Earring",
-    circleImage: require("../../assets/images/item002.jpg"),
-    products: [
-      {
-        id: "1",
-        name: "Elegant jhumka White & Gray",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item002.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "2",
-        name: "Elegant jhumka White & Gray ",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item002.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "3",
-        name: "Elegant jhumka White & Gray ",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item002.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "4",
-        name: "Elegant jhumka White & Gray ",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item002.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "5",
-        name: "Elegant jhumka White & Gray ",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item002.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "6",
-        name: "Elegant jhumka White & Gray ",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item002.jpg"),
-        quantity: 1,
-      },
-    ],
-  },
-  {
-    id: "2",
-    name: "Necklaces",
-    circleImage: require("../../assets/images/item004.jpg"),
-    products: [
-      {
-        id: "1",
-        name: "Emrald CZ Necklace Set with Big Pendant ",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item004.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "2",
-        name: "Emrald CZ Necklace Set with Big Pendant ",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item004.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "3",
-        name: "Emrald CZ Necklace Set with Big Pendant ",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item004.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "4",
-        name: "Emrald CZ Necklace Set with Big Pendant ",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item004.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "5",
-        name: "Emrald CZ Necklace Set with Big Pendant ",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item004.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "6",
-        name: "Emrald CZ Necklace Set with Big Pendant ",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item004.jpg"),
-        quantity: 1,
-      },
-    ],
-  },
-  {
-    id: "3",
-    name: "Rings",
-    circleImage: require("../../assets/images/item001.jpg"),
-    products: [
-      {
-        id: "1",
-        name: "Diamond Ring",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item001.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "2",
-        name: "Diamond Ring",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item001.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "3",
-        name: "Diamond Ring",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item001.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "4",
-        name: "Diamond Ring",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item001.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "5",
-        name: "Diamond Ring",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item001.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "6",
-        name: "Diamond Ring",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/item001.jpg"),
-        quantity: 1,
-      },
-    ],
-  },
-  {
-    id: "4",
-    name: "Chains",
-    circleImage: require("../../assets/images/white-gold-chain.jpeg"),
-    products: [
-      {
-        id: "1",
-        name: "White Gold Chain",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/white-gold-chain.jpeg"),
-        quantity: 1,
-      },
-      {
-        id: "2",
-        name: "White Gold Chain",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/white-gold-chain.jpeg"),
-        quantity: 1,
-      },
-      {
-        id: "3",
-        name: "White Gold Chain",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/white-gold-chain.jpeg"),
-        quantity: 1,
-      },
-      {
-        id: "4",
-        name: "White Gold Chain",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/white-gold-chain.jpeg"),
-        quantity: 1,
-      },
-      {
-        id: "5",
-        name: "White Gold Chain",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/white-gold-chain.jpeg"),
-        quantity: 1,
-      },
-      {
-        id: "6",
-        name: "White Gold Chain",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/white-gold-chain.jpeg"),
-        quantity: 1,
-      },
-    ],
-  },
-  {
-    id: "5",
-    name: "Bracelet",
-    circleImage: require("../../assets/images/bracelet.jpg"),
-    products: [
-      {
-        id: "1",
-        name: "Silver Bracelet",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/bracelet.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "2",
-        name: "Silver Bracelet",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/bracelet.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "3",
-        name: "Silver Bracelet",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/bracelet.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "4",
-        name: "Silver Bracelet",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/bracelet.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "5",
-        name: "Silver Bracelet",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/bracelet.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "6",
-        name: "Silver Bracelet",
-        previousPrice: 3000,
-        currentPrice: 2499,
-        image: require("../../assets/images/bracelet.jpg"),
-        quantity: 1,
-      },
-    ],
-  },
-];
-
 const homePageData = {
   carouselSliderItems: [
     {
@@ -1204,7 +926,7 @@ const homePageData = {
       image: require("../../assets/images/Tika & MathapattiBG.jpg"),
       products: [
         {
-          id: Date.now(),
+          id: "1",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1212,7 +934,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "2",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1220,7 +942,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "3",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1228,7 +950,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "4",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1236,7 +958,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "5",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1244,7 +966,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "6",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1252,7 +974,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "7",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1260,7 +982,7 @@ const homePageData = {
           quantity: 1,
         },
         {
-          id: Date.now(),
+          id: "8",
           name: "SPARKLE forever Iconic/A Class Act Tika & Mathapatti",
           previousPrice: 1000,
           currentPrice: 799,
@@ -1755,7 +1477,10 @@ const Home = () => {
             layoutSubTitle={"Exclusive Collection"}
           />
           <Layout2 data={homePageData.shopByOccasion} />
-          <Layout3 data={homePageData.featuresProduct} />
+          <Layout3
+            data={homePageData.featuresProduct}
+            name={"Features Products"}
+          />
         </View>
       </ScrollView>
     </>

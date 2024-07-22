@@ -1,8 +1,22 @@
-import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import HotItem from "../components/HotItem";
+import { useNavigation } from "@react-navigation/native";
+import Products from "../screen/Products";
 
-const Layout3 = ({ data }) => {
+const Layout3 = ({ data, name }) => {
+  const navigation = useNavigation();
+  const payload = {
+    name: name,
+    products: data,
+  };
   return (
     <View>
       <View
@@ -33,15 +47,19 @@ const Layout3 = ({ data }) => {
             Exclusives Collection
           </Text>
         </View>
-        <Text
-          style={{
-            fontFamily: "WorkSans",
-            fontSize: 15,
-            color: "red",
-          }}
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Products", payload)}
         >
-          View All
-        </Text>
+          <Text
+            style={{
+              fontFamily: "WorkSans",
+              fontSize: 15,
+              color: "red",
+            }}
+          >
+            View All
+          </Text>
+        </TouchableOpacity>
       </View>
       <View style={{ flexDirection: "row", gap: 10 }}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
