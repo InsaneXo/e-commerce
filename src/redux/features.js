@@ -35,5 +35,18 @@ export const wishListSlice = createSlice({
   },
 });
 
+export const themeSwitcherSlice = createSlice({
+  name: "themeSwitcher",
+  initialState: {
+    theme: false,
+  },
+  reducers: {
+    themeSwitcherHandler: (state, action) => {
+      state.theme = action.payload;
+    },
+  },
+});
+
 export const cartSliceAction = cartSlice.actions;
 export const wishListAction = wishListSlice.actions;
+export const themeSwitcherAction = themeSwitcherSlice.actions;
